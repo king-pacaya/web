@@ -1,0 +1,157 @@
+footer
+{
+position: relative;
+height: 65vh;
+width: 100%;
+overflow: hidden;
+}
+	#ffd, #sfd, #tfd
+	{
+	position: relative;
+	float: left;
+	top: 50%;
+	transform: translate(0, -50%);
+	width: calc(100%/3);
+	height: 80%;
+	z-index: 1;
+	}
+	#bif
+	{
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	transform: translate(0, -50%);
+	filter: brightness(60%);
+	z-index: -1;
+	}
+	#ffd img
+	{
+	position: relative;
+	margin: 0 auto;
+	display: block;
+	width: 85%;
+	}
+	#ffd p
+	{
+	color: #FFFFFF;
+	margin: 5vh 0;
+	padding: 0 4vw;
+	font-size: 20px;
+	font-family: 'Montserrat', sans-serif;
+	}
+	#sfd p
+	{
+	position: relative;
+	width: 100%;
+	text-align: center;
+	color: #FF9836;
+	font-size: 30px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	padding: 2vh 0;
+	}
+	#sfd a
+	{
+	position: relative;
+	width: 100%;
+	float: left;
+	text-decoration: none;
+	color: #FFFFFF;
+	font-size: 20px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	margin: 3vh 0;
+	text-align: center;
+	height: 4vh;
+	}
+	#sfd a img
+	{
+	position: relative;
+	height: 100%;
+	top: 50%;
+	margin: 0 .5vw;
+	transform: translate(0, -50%);
+	}
+	#tfd iframe
+	{
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	width: 90%;
+	height: 100%;
+	border: none;
+	border-radius: 15px;
+	}
+@media screen and (max-width: 700px)
+{
+footer
+{
+position: relative;
+height: 100vh;
+width: 100%;
+overflow: hidden;
+}
+	#ffd, #sfd, #tfd
+	{
+	position: relative;
+	float: left;
+	top: 0;
+	transform: none;
+	width: calc(100%/2);
+	height: 50%;
+	z-index: 1;
+	}
+	#tfd
+	{
+	width: 100%;
+	}
+	#tfd iframe
+	{
+	width: 90%;
+	height: 90%;
+	}
+	#bif
+	{
+	position: absolute;
+	top: 50%;
+	height: 100%;
+	transform: translate(0, -50%);
+	filter: brightness(60%);
+	z-index: -1;
+	}
+}
+@media screen and (max-width: 500px)
+{
+footer
+{
+position: relative;
+height: 150vh;
+width: 100%;
+overflow: hidden;
+}
+	#ffd, #sfd, #tfd
+	{
+	position: relative;
+	float: left;
+	top: 0;
+	transform: none;
+	width: 100%;
+	height: calc(100%/3);
+	z-index: 1;
+	}
+	#tfd iframe
+	{
+	width: 90%;
+	height: 90%;
+	}
+	#bif
+	{
+	position: absolute;
+	top: 50%;
+	height: 100%;
+	transform: translate(0, -50%);
+	filter: brightness(60%);
+	z-index: -1;
+	}
+}
