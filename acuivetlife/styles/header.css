@@ -1,0 +1,74 @@
+header {
+position: relative;
+height: 100vh;
+width: 100%;
+overflow: hidden;
+}
+	header video {
+	position: absolute;
+	top: 0;
+	width: 101%;
+	z-index: -1;
+	filter: brightness(80%);
+	}
+	header .container {
+	position: absolute;
+	height: auto;
+	width: auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	}
+	header .container p {
+	text-align: center;
+	width: 100%;
+	padding: 1vh 0;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	color: #fff;
+	}
+	header .container .tittle {
+	height: 100%;
+	}
+	header .container svg {
+	height: 20vh;
+	margin: 0;
+	}
+	header .container .quote {
+	font-size: 2vw;
+	font-style: italic;
+	}
+
+@media screen and (max-width: 900px) {
+	header video {
+	height: 100%;
+	width: auto;
+	}
+	header .container svg {
+	height: 14vw;
+	}
+	header .container .quote {
+	font-size: 3vw;
+	}
+}
+@media screen and (max-width: 700px) {
+	header .container .quote {
+	font-size: 4vw;
+	}
+}
+@media screen and (max-width: 500px) {
+	header .container svg {
+	height: 16vw;
+	}
+	header .container .quote {
+	font-size: 5vw;
+	}
+}
+@media screen and (max-width: 400px) {
+	header .container svg {
+	height: 16vw;
+	}
+	header .container .quote {
+	font-size: 6.5vw;
+	}
+}

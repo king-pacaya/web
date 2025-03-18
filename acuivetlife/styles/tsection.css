@@ -1,0 +1,127 @@
+section {
+position: relative;
+width: 100%;
+height: auto;
+background: #ccc;
+color: #121212;
+font-family: 'Montserrat', sans-serif;
+margin: 0;
+overflow: hidden;
+padding: 15vh 0 0 0;
+}
+	section h1 {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 3vh;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+	}
+	section .container {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	overflow: hidden;
+	}
+		section .container .product {
+		position: relative;
+		height: 75vh;
+		width: calc(100%/3.5);
+		border-radius: 15px;
+		margin: 2vh 0;
+		background-color: #fff;
+		}
+			section .container .product .img {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 45%;
+			overflow: hidden;
+			}
+				section .container .product .img img {
+				height: 90%;
+				}
+			section .container .product .tittle {
+			position: relative;
+			font-weight: bold;
+			padding: 1vh 2vw;
+			font-size: 1.6vw;
+			}
+			section .container .product .info {
+			position: relative;
+			padding: 1vh 2vw;
+			font-size: 1.3vw;
+			height: 25vh;
+			overflow: auto;
+			}
+				section .container .product .info::-webkit-scrollbar {
+				width: 6px;
+				background: transparent;
+				}
+				section .container .product .info::-webkit-scrollbar-thumb {
+				background: #0c1c2c;
+				border-radius: 15px;
+				}
+			section .container .product .btn {
+			position: absolute;
+			bottom: 2vh;
+			border-radius: 15px;
+			margin: 0 calc((100% - 65%)/2);
+			width: 65%;
+			text-align: center;
+			padding: 1.5vh;
+			font-weight: bold;
+			text-decoration: none;
+			background-color: #2ca41c;
+			color: #fff;
+			}
+
+@media screen and (max-width: 900px) {
+	section h1 {
+	font-size: 4.5vw;
+	text-align: center;
+	}
+		section .container .product {
+		width: calc(100%/2.2);
+		}
+			section .container .product .tittle {
+			font-size: 3vw;
+			}
+			section .container .product .info, section .container .product .btn {
+			font-size: 2.5vw;
+			}
+}
+@media screen and (max-width: 700px) {
+	section h1 {
+	font-size: 5.5vw;
+	text-align: center;
+	}
+		section .container .product {
+		width: calc(100%/2.2);
+		}
+			section .container .product .tittle {
+			font-size: 4vw;
+			}
+			section .container .product .info, section .container .product .btn {
+			font-size: 3vw;
+			}
+}
+@media screen and (max-width: 500px) {
+	section h1 {
+	font-size: 8vw;
+	text-align: center;
+	}
+		section .container .product {
+		width: calc(100%/1.1);
+		}
+			section .container .product .tittle {
+			font-size: 6.5vw;
+			}
+			section .container .product .info, section .container .product .btn {
+			font-size: 5vw;
+			}
+}

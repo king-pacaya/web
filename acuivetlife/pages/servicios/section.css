@@ -1,0 +1,101 @@
+section {
+position: relative;
+width: 100%;
+height: 80vh;
+background: #ccc;
+color: #121212;
+font-family: 'Montserrat', sans-serif;
+}
+	section .servicio {
+	position: relative;
+	float: left;
+	width: calc(100%/3);
+	height: 100%;
+	padding: 0 3vw;
+	}
+	section .servicio div {
+	overflow: hidden;
+	width: 100%;
+	height: 15vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	}
+	section .servicio img {
+	height: 70%;
+	}
+	section .servicio p {
+	margin: 2vh 0;
+	}
+	section .servicio .tittle {
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.7vw;
+	color: #065b7b;
+	}
+	section .servicio .info {
+	text-align: left;
+	font-size: 1.3vw;
+	font-weight: 500;
+	}
+	section .servicio .preguntar {
+	position: absolute;
+	bottom: 2vh;
+	left: 50%;
+	width: 80%;
+	transform: translate(-50%, 0);
+	background-color: #2ca41c;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.3vw;
+	text-decoration: none;
+	padding: 2vh 0;
+	border-radius: 15px;
+	}
+
+@media screen and (max-width: 900px) {
+section {
+height: 100vh;
+}
+	section .servicio .tittle {
+	font-size: 3vw;
+	}
+	section .servicio .info, section .servicio .preguntar {
+	font-size: 2.5vw;
+	}
+}
+@media screen and (max-width: 700px) {
+section {
+height: 280vh;
+}
+	section .servicio {
+	width: 100%;
+	height: 80vh;
+	margin: 5vh 0;
+	}
+	section .servicio .tittle {
+	font-size: 5vw;
+	}
+	section .servicio .info, section .servicio .preguntar {
+	font-size: 3.5vw;
+	}
+}
+@media screen and (max-width: 500px) {
+section {
+height: 280vh;
+}
+	section .servicio {
+	width: 100%;
+	height: 80vh;
+	margin: 5vh 0;
+	}
+	section .servicio .tittle {
+	font-size: 7vw;
+	}
+	section .servicio .info, section .servicio .preguntar {
+	font-size: 5vw;
+	}
+}

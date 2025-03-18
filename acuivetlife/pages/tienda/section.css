@@ -1,0 +1,107 @@
+section {
+position: relative;
+width: 100%;
+height: auto;
+background: #ccc;
+color: #121212;
+font-family: 'Montserrat', sans-serif;
+margin: 0;
+overflow: hidden;
+}
+	section h1 {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 3vh;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+	}
+	section .container {
+	display: flex;
+	justify-content: space-around;
+	overflow: hidden;
+	margin: 0 0 10vh 0;
+	}
+	section .categoria {
+	position: relative;
+	width: 30%;
+	overflow: hidden;
+	padding: 2vh 2vw;
+	border: solid #0b1c2d 2px;
+	border-radius: 15px;
+	font-family: 'Montserrat', sans-serif;
+	}
+		section .categoria .tittle {
+		position: relative;
+		font-weight: bold;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 1.4vw;
+		text-align: center;
+		padding: 2vh 0;
+		}
+		section .categoria .img {
+		position: relative;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 25vh;
+		}
+			section .categoria .img img {
+			height: 90%;
+			transform: scale(1.0);
+			transition: 0.3s;
+			}
+			section .categoria .img img:hover {
+			transform: scale(1.1);
+			}
+
+@media screen and (max-width: 900px) {
+	section h1 {
+	font-size: 4vw;
+	}
+		section .categoria .tittle {
+		font-size: 2.5vw;
+		}
+}
+@media screen and (max-width: 700px) {
+	section .container {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	}
+	section .categoria {
+	width: 60%;
+	margin: 2vh 0;
+	}
+	section h1 {
+	font-size: 5vw;
+	}
+		section .categoria .tittle {
+		font-size: 4vw;
+		}
+}
+@media screen and (max-width: 700px) {
+	section .categoria {
+	width: 80%;
+	}
+	section h1 {
+	font-size: 5vw;
+	}
+		section .categoria .tittle {
+		font-size: 4vw;
+		}
+}
+@media screen and (max-width: 500px) {
+	section .categoria {
+	width: 80%;
+	}
+	section h1 {
+	font-size: 8vw;
+	}
+		section .categoria .tittle {
+		font-size: 5vw;
+		}
+}

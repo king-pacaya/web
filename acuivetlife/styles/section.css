@@ -1,0 +1,135 @@
+#vendidos {
+position: relative;
+height: auto;
+width: 100%;
+overflow: hidden;
+}
+	#vendidos h1 {
+	position: relative;
+	margin: 0;
+	height: 10vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	}
+	#vendidos .container {
+	height: auto;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	}
+	#vendidos .producto {
+	position: relative;
+	height: 80vh;
+	width: calc(100%/3);
+	border-radius: 15px;
+	margin: 2vh 0;
+	overflow: hidden;
+	}
+	#vendidos .img {
+	position: relative;
+	width: 100%;
+	height: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	}
+		#vendidos .img img {
+		width: 60%;
+		border-radius: 15px;
+		}
+	#vendidos .descripcion {
+	position: relative;
+	width: 100%;
+	height: 30%;
+	padding: 0 2.5vw;
+	}
+		#vendidos .descripcion .tittle {
+		font-size: 1.5vw;
+		font-weight: 500;
+		}
+		#vendidos .descripcion .description {
+		font-size: 1.4vw;
+		}
+	#vendidos .botones {
+	position: absolute;
+	bottom: 2vh;
+	width: 100%;
+	height: 10%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	}
+		#vendidos .botones a {
+		border-radius: 15px;
+		width: 40%;
+		margin: 0 1vw;
+		padding: 1.3vh;
+		text-align: center;
+		text-decoration: none;
+		}
+		#vendidos .botones .buy {
+		background-color: green;
+		color: #fff;
+		}
+		#vendidos .botones .watch {
+		background-color: #89d8d5;
+		color: #000;
+		font-weight: 500;
+		}
+
+@media screen and (max-width: 900px) {
+	#vendidos h1 {
+	font-size: 4.5vw;
+	}
+	#vendidos .producto {
+	height: 60vh;
+	width: calc(100%/2);
+	margin: 2vh 0;
+	}
+		#vendidos .descripcion .tittle {
+		font-size: 3.5vw;
+		}
+		#vendidos .descripcion .description, #vendidos .botones a {
+		font-size: 2.5vw;
+		}
+}
+@media screen and (max-width: 700px) {
+	#vendidos h1 {
+	font-size: 6.5vw;
+	}
+	#vendidos .producto {
+	height: 70vh;
+	width: 80%;
+	margin: 6vh 0;
+	}
+		#vendidos .descripcion .tittle {
+		font-size: 5.5vw;
+		padding: 2vh 0;
+		}
+		#vendidos .descripcion .description, #vendidos .botones a {
+		font-size: 4vw;
+		}
+}
+@media screen and (max-width: 500px) {
+	#vendidos h1 {
+	font-size: 7.5vw;
+	}
+	#vendidos .producto {
+	height: 70vh;
+	width: 80%;
+	margin: 6vh 0;
+	}
+		#vendidos .descripcion .tittle {
+		font-size: 6.5vw;
+		padding: 2vh 0;
+		}
+		#vendidos .descripcion .description, #vendidos .botones a {
+		font-size: 5vw;
+		}
+}

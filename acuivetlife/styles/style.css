@@ -1,0 +1,36 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'DM Sans', sans-serif;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+width: 6px;
+background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+background: #0c1c2c;
+border-radius: 15px;
+}
+
+.wimg {
+position: fixed;
+bottom: 1vh;
+right: 1vw;
+z-index: 99;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 12vh;
+height: 12vh;
+}
+  .wimg img {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  }
