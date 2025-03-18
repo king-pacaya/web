@@ -1,0 +1,29 @@
+section {
+position: relative;
+height: auto;
+width: 100%;
+overflow: hidden;
+}
+	section p {
+	position: relative;
+	font-size: 20px;
+	font-weight: 500;
+	width: 80%;
+	display: block;
+	margin: 5vh auto;
+	font-family: 'DM Sans', sans-serif;
+	}
+	section a {
+	position: relative;
+	width: 50%;
+	text-align: center;
+	text-decoration: none;
+	padding: 2vh 0;
+	border-radius: 15px;
+	font-size: 20px;
+	display: block;
+	color: #fff;
+	background-color: #d51b22;
+	border: solid red #d51b22;
+	margin: 5vh auto;
+	}

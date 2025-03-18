@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Meta -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index, follow">
+  <meta property="og:locale" content="es_PE"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="MA Salud"/>
+  <meta property="og:description" content="Somos un Centro de apoyo al Diagnóstico, contamos con la mejor tecnología y profesionalismo médico para brindar una atención de calidad y un diagnóstico certero."/>
+  <meta property="og:url" content="http://www.page.com"/>
+  <meta property="og:site_name" content="page.com"/>
+  <meta name="description" content="Somos un Centro de apoyo al Diagnóstico, contamos con la mejor tecnología y profesionalismo médico para brindar una atención de calidad y un diagnóstico certero."/>
+  <meta name="keywords" content="centro de diagnóstico, hospital, enfermería, perú, Perú, Centro de Diagnóstico"/>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="multimedia/favicon.png">
+
+  <!-- Normalize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Montserrat (Fuente única) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome v6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+
+  <title>MA Salud</title>
+
+  <!-- Estilos globales -->
+  <style>
+    /* Usar Montserrat en todo */
+    * {
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      margin: 0;
+      background-color: #f9fafb;
+    }
+    /* Transición suave en el navbar */
+    #navbar {
+      transition: transform 0.3s ease;
+    }
+    /* Scroll suave en toda la página */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Estilo para enlace activo:
+       - Fondo blanco, texto rojo,
+       - Sin subrayado, forma de píldora */
+    .active {
+      @apply bg-white text-red-600 no-underline px-4 py-1 rounded-full;
+    }
+  </style>
+</head>
+<body class="relative">
+
+  <!-- Botón de WhatsApp -->
+  <div class="fixed bottom-4 right-4 w-16 h-16 z-50">
+    <a href="https://wa.link/cxknoo" target="_blank" class="flex items-center justify-center w-full h-full">
+      <img src="multimedia/whatsapp.png" alt="WhatsApp" class="w-full h-full object-contain">
+    </a>
+  </div>
+
+  <!-- Checkbox para menú móvil -->
+  <input type="checkbox" id="click" class="hidden">
+
+  <!-- Ícono de menú para pantallas pequeñas -->
+  <label for="click" class="menu-btn md:hidden fixed top-0 right-0 z-50 p-4 text-white text-3xl">
+    <i class="fas fa-bars" id="menu-btn"></i>
+  </label>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full h-16 bg-red-600 flex items-center justify-between px-8 z-50">
+    <!-- Enlaces a la izquierda (Desktop) -->
+    <ul class="hidden md:flex space-x-6">
+      <li><a href="#" class="text-white text-lg hover:underline transition-colors active no-underline">Inicio</a></li>
+      <li><a href="#ss" class="text-white text-lg hover:underline transition-colors no-underline">Nosotros</a></li>
+      <li><a href="#ts" class="text-white text-lg hover:underline transition-colors no-underline">Servicios</a></li>
+      <li><a href="#contact" class="text-white text-lg hover:underline transition-colors no-underline">Contacto</a></li>
+    </ul>
+    <!-- Logo SVG a la derecha -->
+    <div class="hidden md:block w-24 h-10">
+      <!-- Ejemplo de SVG (sustituye por tu propio SVG si deseas) -->
+      <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 900.000000 240.000000"
+           preserveAspectRatio="xMidYMid meet"
+           class="w-full h-full fill-white">
+        <g transform="translate(0.000000,240.000000) scale(0.100000,-0.100000)">
+          <!-- Path(s) del logo -->
+          <path d="M469 2341 c-123 -29 -266 -111 -327 -189 ... (contenido abreviado) ..."/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Menú Móvil -->
+    <ul id="mobileMenu" class="absolute top-16 left-0 w-full bg-red-600 flex flex-col items-center space-y-4 py-4 hidden md:hidden">
+      <li><a href="#" class="text-white text-xl hover:underline transition-colors no-underline">Inicio</a></li>
+      <li><a href="#ss" class="text-white text-xl hover:underline transition-colors no-underline">Nosotros</a></li>
+      <li><a href="#ts" class="text-white text-xl hover:underline transition-colors no-underline">Servicios</a></li>
+      <li><a href="#contact" class="text-white text-xl hover:underline transition-colors no-underline">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="relative w-full h-screen overflow-hidden">
+    <img src="multimedia/header.jpg" alt="Header" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-40 text-center px-4">
+      <p class="text-2xl md:text-4xl text-white mb-2">Centro de diagnóstico</p>
+      <p class="text-4xl md:text-6xl font-bold text-white mb-4">MA Salud</p>
+      <p class="text-lg md:text-2xl text-white italic mb-6">"Somos los mejores médicos de la familia y la salud"</p>
+      <a href="#contact" class="bg-red-600 text-white py-2 px-6 rounded hover:bg-red-500 transition">Contactar</a>
+    </div>
+  </header>
+
+  <!-- SECTION FS (Frase) -->
+  <section id="fs" class="w-full h-80 flex items-center justify-center bg-red-600">
+    <p class="text-white text-center text-2xl md:text-3xl font-bold px-4">
+      El hospital en el que confía para cuidar a sus seres queridos
+    </p>
+  </section>
+
+  <!-- SECTION SS (Nosotros, Misión, Visión) -->
+  <section id="ss" class="w-full flex flex-col md:flex-row items-center justify-between py-16 px-4 bg-white">
+    <div class="w-full md:w-1/2 space-y-4">
+      <p class="text-3xl font-bold underline decoration-red-600 mb-2">Nosotros</p>
+      <p class="text-base text-gray-700">
+        Somos un Centro de apoyo al Diagnóstico, con la mejor tecnología y profesionalismo médico para brindar una atención de calidad y un diagnóstico certero.
+      </p>
+      <p class="text-3xl font-bold underline decoration-red-600 mb-2">Misión</p>
+      <p class="text-base text-gray-700">
+        Brindar servicios de salud centrados en el paciente, desarrollando programas médico-quirúrgicos enfocados a la prevención, tratamiento y rehabilitación, con ética, equidad, calidad y seguridad.
+      </p>
+      <p class="text-3xl font-bold underline decoration-red-600 mb-2">Visión</p>
+      <p class="text-base text-gray-700">
+        Ser reconocidos como un hospital accesible, que ofrece atención de calidad satisfaciendo las necesidades de la población con eficiencia y transparencia.
+      </p>
+    </div>
+    <div class="w-full md:w-1/2 flex items-center justify-center mt-8 md:mt-0">
+      <img src="multimedia/us.jpg" alt="Nosotros" class="rounded-xl shadow-lg w-full object-cover max-h-[500px]">
+    </div>
+  </section>
+
+  <!-- SECTION TS (Servicios) -->
+  <section id="ts" class="py-16 bg-red-600 px-4">
+    <h1 class="text-center text-white text-3xl font-bold uppercase mb-8">Servicios</h1>
+    <div class="container mx-auto flex flex-wrap justify-around">
+
+      <!-- Servicio 1 -->
+      <div class="bg-white rounded-xl shadow-lg m-4 p-4 w-full md:w-1/3 lg:w-1/4">
+        <div class="overflow-hidden flex items-center justify-center h-40">
+          <img src="multimedia/s1.jpg" alt="Obstetricia" class="w-full h-full object-cover rounded-xl transform transition duration-300 hover:scale-105">
+        </div>
+        <p class="text-center text-xl font-bold text-red-600 mt-4">Obstetricia</p>
+        <a href="servicios/s1/index.html" class="block text-center mt-2 bg-red-600 text-white py-2 px-4 rounded-full hover:bg-red-500 transition no-underline">
+          Información
+        </a>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div class="bg-white rounded-xl shadow-lg m-4 p-4 w-full md:w-1/3 lg:w-1/4">
+        <div class="overflow-hidden flex items-center justify-center h-40">
+          <img src="multimedia/s2.jpg" alt="Ecografías" class="w-full h-full object-cover rounded-xl transform transition duration-300 hover:scale-105">
+        </div>
+        <p class="text-center text-xl font-bold text-red-600 mt-4">Ecografías</p>
+        <a href="servicios/s2/index.html" class="block text-center mt-2 bg-red-600 text-white py-2 px-4 rounded-full hover:bg-red-500 transition no-underline">
+          Información
+        </a>
+      </div>
+
+      <!-- Servicio 3 -->
+      <div class="bg-white rounded-xl shadow-lg m-4 p-4 w-full md:w-1/3 lg:w-1/4">
+        <div class="overflow-hidden flex items-center justify-center h-40">
+          <img src="multimedia/s3.jpg" alt="Medicina General" class="w-full h-full object-cover rounded-xl transform transition duration-300 hover:scale-105">
+        </div>
+        <p class="text-center text-xl font-bold text-red-600 mt-4">Medicina General</p>
+        <a href="servicios/s3/index.html" class="block text-center mt-2 bg-red-600 text-white py-2 px-4 rounded-full hover:bg-red-500 transition no-underline">
+          Información
+        </a>
+      </div>
+
+      <!-- Servicio 4 -->
+      <div class="bg-white rounded-xl shadow-lg m-4 p-4 w-full md:w-1/3 lg:w-1/4">
+        <div class="overflow-hidden flex items-center justify-center h-40">
+          <img src="multimedia/s4.jpg" alt="Pruebas COVID" class="w-full h-full object-cover rounded-xl transform transition duration-300 hover:scale-105">
+        </div>
+        <p class="text-center text-xl font-bold text-red-600 mt-4">Pruebas COVID</p>
+        <a href="servicios/s4/index.html" class="block text-center mt-2 bg-red-600 text-white py-2 px-4 rounded-full hover:bg-red-500 transition no-underline">
+          Información
+        </a>
+      </div>
+
+      <!-- Servicio 5 -->
+      <div class="bg-white rounded-xl shadow-lg m-4 p-4 w-full md:w-1/3 lg:w-1/4">
+        <div class="overflow-hidden flex items-center justify-center h-40">
+          <img src="multimedia/s5.jpg" alt="Laboratorios" class="w-full h-full object-cover rounded-xl transform transition duration-300 hover:scale-105">
+        </div>
+        <p class="text-center text-xl font-bold text-red-600 mt-4">Laboratorios</p>
+        <a href="servicios/s5/index.html" class="block text-center mt-2 bg-red-600 text-white py-2 px-4 rounded-full hover:bg-red-500 transition no-underline">
+          Información
+        </a>
+      </div>
+
+      <!-- Servicio 6 -->
+      <div class="bg-white rounded-xl shadow-lg m-4 p-4 w-full md:w-1/3 lg:w-1/4">
+        <div class="overflow-hidden flex items-center justify-center h-40">
+          <img src="multimedia/s6.jpg" alt="Óptica" class="w-full h-full object-cover rounded-xl transform transition duration-300 hover:scale-105">
+        </div>
+        <p class="text-center text-xl font-bold text-red-600 mt-4">Óptica</p>
+        <a href="servicios/s6/index.html" class="block text-center mt-2 bg-red-600 text-white py-2 px-4 rounded-full hover:bg-red-500 transition no-underline">
+          Información
+        </a>
+      </div>
+
+      <!-- Servicio 7 -->
+      <div class="bg-white rounded-xl shadow-lg m-4 p-4 w-full md:w-1/3 lg:w-1/4">
+        <div class="overflow-hidden flex items-center justify-center h-40">
+          <img src="multimedia/s7.jpg" alt="Radiografía" class="w-full h-full object-cover rounded-xl transform transition duration-300 hover:scale-105">
+        </div>
+        <p class="text-center text-xl font-bold text-red-600 mt-4">Radiografía</p>
+        <a href="servicios/s7/index.html" class="block text-center mt-2 bg-red-600 text-white py-2 px-4 rounded-full hover:bg-red-500 transition no-underline">
+          Información
+        </a>
+      </div>
+
+      <!-- Servicio 8 -->
+      <div class="bg-white rounded-xl shadow-lg m-4 p-4 w-full md:w-1/3 lg:w-1/4">
+        <div class="overflow-hidden flex items-center justify-center h-40">
+          <img src="multimedia/s8.jpg" alt="Podología" class="w-full h-full object-cover rounded-xl transform transition duration-300 hover:scale-105">
+        </div>
+        <p class="text-center text-xl font-bold text-red-600 mt-4">Podología</p>
+        <a href="servicios/s8/index.html" class="block text-center mt-2 bg-red-600 text-white py-2 px-4 rounded-full hover:bg-red-500 transition no-underline">
+          Información
+        </a>
+      </div>
+
+      <!-- Servicio 9 -->
+      <div class="bg-white rounded-xl shadow-lg m-4 p-4 w-full md:w-1/3 lg:w-1/4">
+        <div class="overflow-hidden flex items-center justify-center h-40">
+          <img src="multimedia/s9.jpg" alt="Tópico" class="w-full h-full object-cover rounded-xl transform transition duration-300 hover:scale-105">
+        </div>
+        <p class="text-center text-xl font-bold text-red-600 mt-4">Tópico</p>
+        <a href="servicios/s9/index.html" class="block text-center mt-2 bg-red-600 text-white py-2 px-4 rounded-full hover:bg-red-500 transition no-underline">
+          Información
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER (con Google Maps incrustado) -->
+  <footer id="contact" class="relative bg-gray-200 py-10 md:py-16">
+    <div class="container mx-auto bg-red-600 rounded-xl shadow-lg px-6 md:px-8 py-8 relative overflow-hidden z-10 text-white">
+      <!-- Franja inferior (ya no es necesaria; convertimos todo el container en rojo) -->
+      <!-- Mapa con altura menor (h-64) para que no ocupe tanto -->
+      <h3 class="relative z-10 text-xl md:text-3xl font-bold text-center text-white mb-4">
+        Contáctanos
+      </h3>
+      <div class="relative z-10 overflow-hidden rounded-xl shadow-lg mb-6">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d975.5543873499884!2d-76.92373401193385!3d-12.028538687805279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c56e4403b2fd%3A0xc9dce3aa4b28681f!2sMA%20Salud%20Pepino!5e0!3m2!1ses-419!2spe!4v1671030779890!5m2!1ses-419!2spe"
+          class="w-full h-64 border-0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <!-- Teléfono -->
+      <div class="flex items-center">
+        <i class="fa-solid fa-phone text-white text-2xl md:text-3xl mr-3"></i>
+        <p class="font-bold text-lg">Teléfono:</p>
+      </div>
+      <p class="text-sm md:text-base ml-8">+51 939 008 847</p>
+      <p class="text-sm md:text-base ml-8 mb-4">+51 975 209 025</p>
+
+      <!-- Email -->
+      <div class="flex items-center">
+        <i class="fa-solid fa-envelope text-white text-2xl md:text-3xl mr-3"></i>
+        <p class="font-bold text-lg">Email:</p>
+      </div>
+      <p class="text-sm md:text-base ml-8 mb-4">m.asalud161199@gmail.com</p>
+
+      <!-- Ubicación -->
+      <div class="flex items-center">
+        <i class="fa-solid fa-location-dot text-white text-2xl md:text-3xl mr-3"></i>
+        <p class="font-bold text-lg">Ubicación:</p>
+      </div>
+      <p class="text-sm md:text-base ml-8 mb-4">
+        Av. Nicolás Ayllon 5542 dep. 201 Segundo Piso Mz. A Lote 19 - 20, Ate
+      </p>
+
+      <!-- Redes -->
+      <div class="flex items-center">
+        <i class="fa-solid fa-share-nodes text-white text-2xl md:text-3xl mr-3"></i>
+        <p class="font-bold text-lg">Redes:</p>
+      </div>
+      <div class="flex space-x-4 ml-8">
+        <a href="https://www.facebook.com/profile.php?id=100088423399800" target="_blank">
+          <img src="multimedia/facebook.png" alt="Facebook" class="w-8 h-8 object-contain">
+        </a>
+        <a href="https://www.instagram.com/masalud.pe/" target="_blank">
+          <img src="multimedia/instagram.png" alt="Instagram" class="w-8 h-8 object-contain">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts Combinados -->
+  <script>
+    // Toggle menú móvil
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById("mobileMenu");
+      mobileMenu.classList.toggle("hidden");
+    }
+
+    // Ocultar/mostrar navbar con scroll
+    let prevScrollpos = window.pageYOffset;
+    window.addEventListener("scroll", () => {
+      const currentScrollPos = window.pageYOffset;
+      const navbar = document.getElementById("navbar");
+      if (currentScrollPos > prevScrollpos) {
+        navbar.classList.add("-translate-y-full");
+      } else {
+        navbar.classList.remove("-translate-y-full");
+      }
+      prevScrollpos = currentScrollPos;
+    });
+
+    // Añadir clase 'active' al enlace clicado
+    const links = document.querySelectorAll("nav ul li a, #mobileMenu a");
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        // Quitar 'active' de todos los enlaces
+        links.forEach(el => el.classList.remove("active"));
+        // Agregar 'active' al enlace presionado
+        link.classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>

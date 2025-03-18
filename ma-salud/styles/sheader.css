@@ -1,0 +1,41 @@
+header {
+position: relative;
+height: 50vh;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+}
+	header img {
+	position: absolute;
+	width: 101%;
+	height: auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	filter: brightness(50%);
+	z-index: -1;
+	}
+	header h1 {
+	position: absolute;
+	font-size: 8vw;
+	color: #fff;
+	font-family: 'DM Sans', sans-serif;
+	}
+
+@media (max-width: 900px) {
+	header img {
+	height: 101%;
+	width: auto;
+	}
+	header h1 {
+	font-size: 70px;
+	}
+}
+
+@media (max-width: 400px) {
+	header h1 {
+	font-size: 50px;
+	}
+}
