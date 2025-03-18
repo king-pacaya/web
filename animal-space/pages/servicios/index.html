@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Meta -->
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="robots" content="index, follow">
+  <meta property="og:locale" content="es_PE"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Animal Space | Veterinaria"/>
+  <meta property="og:description" content="Animal Space, el amor que tu mascota necesita"/>
+  <meta property="og:url" content="https://www.pagina.com"/>
+  <meta property="og:site_name" content="pagina.com"/>
+  <meta name="description" content="Animal Space, el amor que tu mascota necesita"/>
+  <meta name="keywords" content="Animal Space, Veterinaria, veterinaria, perros, Perros, Carabayllo"/>
+
+  <!-- Normalize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (versión actualizada) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../../multimedia/favicon.png">
+
+  <title>Servicios</title>
+
+  <!-- Estilos globales para usar Montserrat -->
+  <style>
+    * { font-family: 'Montserrat', sans-serif; }
+    body { padding-top: 15vh; }
+  </style>
+</head>
+<body class="relative">
+
+  <!-- Botón de WhatsApp -->
+  <div class="fixed bottom-4 right-4 h-12 w-12 z-[99] overflow-hidden">
+    <a href="https://wa.link/of9k0l" target="_blank" class="absolute inset-0 flex items-center justify-center">
+      <img src="../../multimedia/whatsapp.png" alt="WhatsApp" class="h-[90%]">
+    </a>
+  </div>
+
+  <!-- NAVBAR CON ANIMACIÓN (oculta/mostrar al hacer scroll) -->
+  <nav id="myTopnav" class="fixed top-0 w-full z-[99] bg-[rgba(0,0,0,0.6)] px-8 transition-transform duration-300 transform translate-y-0">
+    <div class="h-16 flex items-center">
+      <!-- Logo (desktop) -->
+      <img src="../../multimedia/logo.png" alt="Logo" class="hidden md:block h-[70%] mr-4">
+      <!-- Enlaces de navegación (desktop) -->
+      <a href="../../index.html#inicio" class="hidden md:inline-block text-white/80 text-sm py-2 px-3 hover:text-white hover:border-b-2 hover:border-white">Inicio</a>
+      <a href="../../index.html#nosotros" class="hidden md:inline-block text-white/80 text-sm py-2 px-3 hover:text-white hover:border-b-2 hover:border-white">Nosotros</a>
+      <a href="../../index.html#categorias" class="hidden md:inline-block text-white/80 text-sm py-2 px-3 hover:text-white hover:border-b-2 hover:border-white">Categorías</a>
+      <a href="../../pages/servicios/index.html" class="hidden md:inline-block text-white/80 text-sm py-2 px-3 border-b-2 border-white">Servicios</a>
+      <a href="../../pages/galeria/index.html" class="hidden md:inline-block text-white/80 text-sm py-2 px-3 hover:text-white hover:border-b-2 hover:border-white">Galería</a>
+      <a href="#contacto" class="hidden md:inline-block text-white/80 text-sm py-2 px-3 hover:text-white hover:border-b-2 hover:border-white">Contacto</a>
+      <!-- Ícono para móvil -->
+      <a href="javascript:void(0);" class="block md:hidden ml-auto text-white text-2xl" onclick="myFunction()">&#9776;</a>
+    </div>
+    <!-- Menú móvil (se mostrará al hacer clic en el ícono) -->
+    <div id="mobileMenu" class="hidden flex-col">
+      <a href="../../index.html#inicio" class="block text-center py-2 text-white hover:bg-[rgba(0,0,0,0.7)]">Inicio</a>
+      <a href="../../index.html#nosotros" class="block text-center py-2 text-white hover:bg-[rgba(0,0,0,0.7)]">Nosotros</a>
+      <a href="../../index.html#categorias" class="block text-center py-2 text-white hover:bg-[rgba(0,0,0,0.7)]">Categorías</a>
+      <a href="../../pages/servicios/index.html" class="block text-center py-2 text-white hover:bg-[rgba(0,0,0,0.7)]">Servicios</a>
+      <a href="../../pages/galeria/index.html" class="block text-center py-2 text-white hover:bg-[rgba(0,0,0,0.7)]">Galería</a>
+      <a href="#contacto" class="block text-center py-2 text-white hover:bg-[rgba(0,0,0,0.7)]">Contacto</a>
+    </div>
+  </nav>
+
+  <!-- SECCIÓN: SERVICIOS -->
+  <section class="py-16 px-4">
+    <h1 class="w-full text-center text-3xl font-semibold mb-8">Servicios</h1>
+    <!-- Grid de tarjetas -->
+    <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      
+      <!-- Tarjeta: Cirugías -->
+      <div class="relative h-[75vh] bg-[#282E33] text-white rounded-[15px] overflow-auto shadow-xl">
+        <div class="h-[20vh] flex items-center justify-center overflow-hidden">
+          <img src="../../multimedia/cirugia.png" alt="Cirugías" class="h-[90%] object-contain">
+        </div>
+        <p class="text-center py-4 text-2xl font-light capitalize">Cirugías</p>
+        <p class="px-4 text-base h-[40vh] overflow-auto">
+          Realizamos todo tipo de cirugías:<br><br>
+          - Castraciones.<br>
+          - Esterilizaciones.<br>
+          - Enuclación.<br>
+          - Tumores mamarios.<br>
+          - Tumores perianales.<br>
+          - Traumatología.<br>
+          - Etc.
+        </p>
+        <a href="https://wa.link/bbhy0j" class="absolute bottom-4 left-4 right-4 py-2 bg-blue-500 rounded text-sm font-bold tracking-wide text-center">Preguntar</a>
+      </div>
+      
+      <!-- Tarjeta: Petshop -->
+      <div class="relative h-[75vh] bg-[#282E33] text-white rounded-[15px] overflow-auto shadow-xl">
+        <div class="h-[20vh] flex items-center justify-center overflow-hidden">
+          <img src="../../multimedia/petshop.png" alt="Petshop" class="h-[90%] object-contain">
+        </div>
+        <p class="text-center py-4 text-2xl font-light capitalize">Petshop</p>
+        <p class="px-4 text-base h-[40vh] overflow-auto">
+          Contamos con toda la variedad de accesorios, tales como:<br><br>
+          - Pecheras.<br>
+          - Arneses.<br>
+          - Juguetes para los engreídos.<br>
+          - Camas.<br>
+          - Iglús.<br>
+          - Collares.<br>
+          - Colchonetas.<br>
+          - Bozales.<br>
+          - Alimentos en galletas.<br>
+          - Dogchow.<br>
+          - Catchow.<br>
+          - Frískies para gatos esterilizados.<br>
+          - Friskies preventivos de cálculos.<br>
+          - Cambo para cachorros y adultos.<br>
+          - Transportines para gatos.<br>
+          - Mochilas transportadoras.<br>
+          - Comederos y bebederos.<br>
+          - Rascadores, ropita, capas y entérizos.<br>
+          - Arena para gatos y accesorios para peces.<br>
+          - Shampoos y collares antipulgas.
+        </p>
+        <a href="https://wa.link/bbhy0j" class="absolute bottom-4 left-4 right-4 py-2 bg-blue-500 rounded text-sm font-bold tracking-wide text-center">Preguntar</a>
+      </div>
+      
+      <!-- Tarjeta: Hemogramas -->
+      <div class="relative h-[75vh] bg-[#282E33] text-white rounded-[15px] overflow-auto shadow-xl">
+        <div class="h-[20vh] flex items-center justify-center overflow-hidden">
+          <img src="../../multimedia/hemograma.png" alt="Hemogramas" class="h-[90%] object-contain">
+        </div>
+        <p class="text-center py-4 text-2xl font-light capitalize">Hemogramas</p>
+        <p class="px-4 text-base h-[40vh] overflow-auto">
+          Contamos con equipo de análisis hematológico para realizar análisis de sangre en 1 minuto. También ofrecemos:
+          <br><br>- Orina.<br>
+          - Progesterona.<br>
+          - Preliminares.<br>
+          - Hepático básico y avanzado.<br>
+          - Renal básico y avanzado.<br>
+          - Citología.<br>
+          - Glucosa y colesterol.<br>
+          - Cultivos y urocultivos.<br>
+          - Etc.
+        </p>
+        <a href="https://wa.link/bbhy0j" class="absolute bottom-4 left-4 right-4 py-2 bg-blue-500 rounded text-sm font-bold tracking-wide text-center">Preguntar</a>
+      </div>
+      
+      <!-- Tarjeta: Rayos X -->
+      <div class="relative h-[75vh] bg-[#282E33] text-white rounded-[15px] overflow-auto shadow-xl">
+        <div class="h-[20vh] flex items-center justify-center overflow-hidden">
+          <img src="../../multimedia/rayosx.png" alt="Rayos X" class="h-[90%] object-contain">
+        </div>
+        <p class="text-center py-4 text-2xl font-light capitalize">Rayos X</p>
+        <p class="px-4 text-base h-[40vh] overflow-auto">
+          Contamos con equipo de rayos X para el descarte de:<br><br>
+          - Fracturas.<br>
+          - Displasias.<br>
+          - Desgarres.<br>
+          - Fisuras.<br>
+          - Cuerpos extraños.<br>
+          - Etc.
+        </p>
+        <a href="https://wa.link/bbhy0j" class="absolute bottom-4 left-4 right-4 py-2 bg-blue-500 rounded text-sm font-bold tracking-wide text-center">Preguntar</a>
+      </div>
+      
+      <!-- Tarjeta: Ecografías -->
+      <div class="relative h-[75vh] bg-[#282E33] text-white rounded-[15px] overflow-auto shadow-xl">
+        <div class="h-[20vh] flex items-center justify-center overflow-hidden">
+          <img src="../../multimedia/ecografia.png" alt="Ecografías" class="h-[90%] object-contain">
+        </div>
+        <p class="text-center py-4 text-2xl font-light capitalize">Ecografías</p>
+        <p class="px-4 text-base h-[40vh] overflow-auto">
+          Contamos con ecógrafo dópler pulsado para diagnóstico de:<br><br>
+          - Partes blandas.<br>
+          - Hígado.<br>
+          - Riñón.<br>
+          - Ecografía renal.<br>
+          - Ecografía trasversal.<br>
+          - Ecografía abdominal.<br>
+          - Ecografía gestacional.
+        </p>
+        <a href="https://wa.link/bbhy0j" class="absolute bottom-4 left-4 right-4 py-2 bg-blue-500 rounded text-sm font-bold tracking-wide text-center">Preguntar</a>
+      </div>
+      
+      <!-- Tarjeta: Nebulizaciones -->
+      <div class="relative h-[75vh] bg-[#282E33] text-white rounded-[15px] overflow-auto shadow-xl">
+        <div class="h-[20vh] flex items-center justify-center overflow-hidden">
+          <img src="../../multimedia/nebulizacion.png" alt="Nebulizaciones" class="h-[90%] object-contain">
+        </div>
+        <p class="text-center py-4 text-2xl font-light capitalize">Nebulizaciones</p>
+        <p class="px-4 text-base h-[40vh] overflow-auto">
+          Contamos con equipo de nebulización para problemas:<br><br>
+          - Respiratorios.<br>
+          - Neumonías.<br>
+          - Broncoespasmos.<br>
+          - Etc.
+        </p>
+        <a href="https://wa.link/bbhy0j" class="absolute bottom-4 left-4 right-4 py-2 bg-blue-500 rounded text-sm font-bold tracking-wide text-center">Preguntar</a>
+      </div>
+      
+      <!-- Tarjeta: Consultas y Tratamientos -->
+      <div class="relative h-[75vh] bg-[#282E33] text-white rounded-[15px] overflow-auto shadow-xl">
+        <div class="h-[20vh] flex items-center justify-center overflow-hidden">
+          <img src="../../multimedia/consulta.png" alt="Consultas y Tratamientos" class="h-[90%] object-contain">
+        </div>
+        <p class="text-center py-4 text-2xl font-light capitalize">Consultas y Tratamientos</p>
+        <p class="px-4 text-base h-[40vh] overflow-auto">
+          Nuestro equipo médico está capacitado para atender:<br><br>
+          - Tratamiento de parvovirus.<br>
+          - Tratamiento de distemper.<br>
+          - Tratamiento de erlichia.<br>
+          - Leptospirosis.<br>
+          - Traqueobronquitis.<br>
+          - Tos de perrera.<br>
+          - Sarna.<br>
+          - Tratamiento con quimioterapia.<br>
+          - Todo tipo de vacunas.<br>
+          - Descartes al instante.<br>
+          - Eutanásia, sondaje felino, leucemia felina, diabetes, convulsiones, estabilización y emergencias.
+        </p>
+        <a href="https://wa.link/bbhy0j" class="absolute bottom-4 left-4 right-4 py-2 bg-blue-500 rounded text-sm font-bold tracking-wide text-center">Preguntar</a>
+      </div>
+      
+      <!-- Tarjeta: Sala de emergencias -->
+      <div class="relative h-[75vh] bg-[#282E33] text-white rounded-[15px] overflow-auto shadow-xl">
+        <div class="h-[20vh] flex items-center justify-center overflow-hidden">
+          <img src="../../multimedia/emergencia.png" alt="Sala de emergencias" class="h-[90%] object-contain">
+        </div>
+        <p class="text-center py-4 text-2xl font-light capitalize">Sala de emergencias</p>
+        <p class="px-4 text-base h-[40vh] overflow-auto">
+          Nuestra sala de emergencias está preparada para atender cualquier situación crítica.
+        </p>
+        <a href="https://wa.link/bbhy0j" class="absolute bottom-4 left-4 right-4 py-2 bg-blue-500 rounded text-sm font-bold tracking-wide text-center">Preguntar</a>
+      </div>
+      
+      <!-- Tarjeta: Máquina de anestesia -->
+      <div class="relative h-[75vh] bg-[#282E33] text-white rounded-[15px] overflow-auto shadow-xl">
+        <div class="h-[20vh] flex items-center justify-center overflow-hidden">
+          <img src="../../multimedia/anestesia.png" alt="Máquina de anestesia" class="h-[90%] object-contain">
+        </div>
+        <p class="text-center py-4 text-2xl font-light capitalize">Máquina de anestesia</p>
+        <p class="px-4 text-base h-[40vh] overflow-auto">
+          Contamos con máquina de anestesia inhalatoria de isoflurano para:<br><br>
+          - Cesáreas en bulldogs.<br>
+          - Cirugía de traumatología.<br>
+          - Extracción de tumores.<br>
+          - Piometras.<br>
+          - Etc.
+        </p>
+        <a href="https://wa.link/bbhy0j" class="absolute bottom-4 left-4 right-4 py-2 bg-blue-500 rounded text-sm font-bold tracking-wide text-center">Preguntar</a>
+      </div>
+      
+      <!-- Tarjeta: Área de internamiento -->
+      <div class="relative h-[75vh] bg-[#282E33] text-white rounded-[15px] overflow-auto shadow-xl">
+        <div class="h-[20vh] flex items-center justify-center overflow-hidden">
+          <img src="../../multimedia/internamiento.png" alt="Área de internamiento" class="h-[90%] object-contain">
+        </div>
+        <p class="text-center py-4 text-2xl font-light capitalize">Área de internamiento</p>
+        <p class="px-4 text-base h-[40vh] overflow-auto">
+          Disponemos de una sala habilitada para el internamiento de pacientes operados y para tratamientos de hidratación parental, transfusiones y concentrados sanguíneos.
+        </p>
+        <a href="https://wa.link/bbhy0j" class="absolute bottom-4 left-4 right-4 py-2 bg-blue-500 rounded text-sm font-bold tracking-wide text-center">Preguntar</a>
+      </div>
+      
+      <!-- Tarjeta: Mesa hidráulica -->
+      <div class="relative h-[75vh] bg-[#282E33] text-white rounded-[15px] overflow-auto shadow-xl">
+        <div class="h-[20vh] flex items-center justify-center overflow-hidden">
+          <img src="../../multimedia/hidraulica.png" alt="Mesa hidráulica" class="h-[90%] object-contain">
+        </div>
+        <p class="text-center py-4 text-2xl font-light capitalize">Mesa hidráulica</p>
+        <p class="px-4 text-base h-[40vh] overflow-auto">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <a href="https://wa.link/bbhy0j" class="absolute bottom-4 left-4 right-4 py-2 bg-blue-500 rounded text-sm font-bold tracking-wide text-center">Preguntar</a>
+      </div>
+      
+      <!-- Tarjeta: Monitor de signos vitales -->
+      <div class="relative h-[75vh] bg-[#282E33] text-white rounded-[15px] overflow-auto shadow-xl">
+        <div class="h-[20vh] flex items-center justify-center overflow-hidden">
+          <img src="../../multimedia/signosvitales.png" alt="Monitor de signos vitales" class="h-[90%] object-contain">
+        </div>
+        <p class="text-center py-4 text-2xl font-light capitalize">Monitor de signos vitales</p>
+        <p class="px-4 text-base h-[40vh] overflow-auto">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <a href="https://wa.link/bbhy0j" class="absolute bottom-4 left-4 right-4 py-2 bg-blue-500 rounded text-sm font-bold tracking-wide text-center">Preguntar</a>
+      </div>
+      
+      <!-- Tarjeta: Bomba de infusión -->
+      <div class="relative h-[75vh] bg-[#282E33] text-white rounded-[15px] overflow-auto shadow-xl">
+        <div class="h-[20vh] flex items-center justify-center overflow-hidden">
+          <img src="../../multimedia/infusion.png" alt="Bomba de infusión" class="h-[90%] object-contain">
+        </div>
+        <p class="text-center py-4 text-2xl font-light capitalize">Bomba de infusión</p>
+        <p class="px-4 text-base h-[40vh] overflow-auto">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <a href="https://wa.link/bbhy0j" class="absolute bottom-4 left-4 right-4 py-2 bg-blue-500 rounded text-sm font-bold tracking-wide text-center">Preguntar</a>
+      </div>
+      
+      <!-- Tarjeta: Aspirador de fluidos -->
+      <div class="relative h-[75vh] bg-[#282E33] text-white rounded-[15px] overflow-auto shadow-xl">
+        <div class="h-[20vh] flex items-center justify-center overflow-hidden">
+          <img src="../../multimedia/aspirador.png" alt="Aspirador de fluidos" class="h-[90%] object-contain">
+        </div>
+        <p class="text-center py-4 text-2xl font-light capitalize">Aspirador de fluidos</p>
+        <p class="px-4 text-base h-[40vh] overflow-auto">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <a href="https://wa.link/bbhy0j" class="absolute bottom-4 left-4 right-4 py-2 bg-blue-500 rounded text-sm font-bold tracking-wide text-center">Preguntar</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contacto" class="relative h-screen w-full overflow-hidden">
+    <img src="../../multimedia/footer.jpg" alt="Footer Background" class="absolute top-0 left-1/2 w-[101%] -translate-x-1/2 z-0">
+    <div class="absolute top-1/2 left-[30%] h-[90%] w-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1A1A1A] rounded-[15px] p-4">
+      <h1 class="flex justify-center items-center text-white text-4xl h-1/5 m-0">Contáctenos</h1>
+      <div class="flex flex-col md:flex-row justify-around items-center h-4/5">
+        <div class="flex flex-col items-center mb-4 md:mb-0">
+          <div class="flex items-center justify-center h-16 w-16">
+            <img src="../../multimedia/location.png" alt="Ubicación" class="h-full" style="filter: invert(1);">
+          </div>
+          <p class="text-sm text-[#999999] uppercase font-bold">Ubícanos en</p>
+          <p class="text-sm text-white text-center">Av. Lomas de Carabayllo Mz H Lote 3 Las Casuarinas, Carabayllo 07031</p>
+        </div>
+        <div class="flex flex-col items-center mb-4 md:mb-0">
+          <div class="flex items-center justify-center h-16 w-16">
+            <img src="../../multimedia/phone.png" alt="Teléfono" class="h-full" style="filter: invert(1);">
+          </div>
+          <p class="text-sm text-[#999999] uppercase font-bold">Teléfono</p>
+          <p class="text-sm text-white text-center">+51 989 786 349 / +51 932 325 583</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="flex items-center justify-center h-16 w-16">
+            <img src="../../multimedia/mail.png" alt="Correo Electrónico" class="h-full" style="filter: invert(1);">
+          </div>
+          <p class="text-sm text-[#999999] uppercase font-bold">Correo Electrónico</p>
+          <p class="text-sm text-white text-center">correo@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script para menú responsive y animación del topnav -->
+  <script>
+    // Menú móvil
+    function myFunction() {
+      const mobileMenu = document.getElementById("mobileMenu");
+      mobileMenu.classList.toggle("hidden");
+    }
+
+    // Animación de ocultar/mostrar navbar al hacer scroll
+    let lastScrollTop = 0;
+    const nav = document.getElementById("myTopnav");
+
+    window.addEventListener("scroll", function() {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScroll > lastScrollTop) {
+        // Scroll hacia abajo: ocultar navbar
+        nav.classList.add("-translate-y-full");
+      } else {
+        // Scroll hacia arriba: mostrar navbar
+        nav.classList.remove("-translate-y-full");
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index, follow">
+  <meta property="og:locale" content="es_PE"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Animal Space | Veterinaria"/>
+  <meta property="og:description" content="Animal Space, el amor que tu mascota necesita"/>
+  <meta property="og:url" content="https://www.pagina.com"/>
+  <meta property="og:site_name" content="pagina.com"/>
+  <meta name="description" content="Animal Space, el amor que tu mascota necesita"/>
+  <meta name="keywords" content="Animal Space, Veterinaria, veterinaria, perros, Perros, Carabayllo"/>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes y Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+
+  <title>Animal Space | Centro Veterinario</title>
+
+  <!-- Estilo global para usar Montserrat -->
+  <style>
+    * {
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+</head>
+<body class="relative">
+
+  <!-- NAVBAR (con transición de aparecer/desaparecer) -->
+  <nav id="myTopnav"
+       class="fixed top-0 w-full z-[99]
+              bg-[rgba(0,0,0,0.6)] px-[2vw]
+              transition-transform duration-300 transform translate-y-0">
+    <div class="h-16 flex items-center justify-start">
+      <!-- Logo en pantallas md en adelante -->
+      <img src="multimedia/logo.png"
+           alt="Logo"
+           class="hidden md:block h-[70%] mr-4 border-0">
+
+      <!-- Enlaces de navegación (visibles en desktop) -->
+      <a href="#inicio"
+         class="nava hidden md:inline-block text-white/80 text-center py-2 px-3 text-sm hover:text-white hover:border-b-2 hover:border-white">
+         Inicio
+      </a>
+      <a href="#nosotros"
+         class="nava hidden md:inline-block text-white/80 text-center py-2 px-3 text-sm hover:text-white hover:border-b-2 hover:border-white">
+         Nosotros
+      </a>
+      <a href="#categorias"
+         class="nava hidden md:inline-block text-white/80 text-center py-2 px-3 text-sm hover:text-white hover:border-b-2 hover:border-white">
+         Categorías
+      </a>
+      <a href="pages/servicios/index.html"
+         class="nava hidden md:inline-block text-white/80 text-center py-2 px-3 text-sm hover:text-white hover:border-b-2 hover:border-white">
+         Servicios
+      </a>
+      <a href="pages/galeria/index.html"
+         class="nava hidden md:inline-block text-white/80 text-center py-2 px-3 text-sm hover:text-white hover:border-b-2 hover:border-white">
+         Galería
+      </a>
+      <a href="#contacto"
+         class="nava hidden md:inline-block text-white/80 text-center py-2 px-3 text-sm hover:text-white hover:border-b-2 hover:border-white">
+         Contacto
+      </a>
+
+      <!-- Ícono para mobile -->
+      <a href="javascript:void(0);"
+         class="icon block md:hidden ml-auto text-white text-2xl"
+         onclick="myFunction()">
+         &#9776;
+      </a>
+    </div>
+  </nav>
+
+  <!-- Botón de WhatsApp -->
+  <div class="fixed bottom-4 right-4 h-12 w-12 z-[99] overflow-hidden">
+    <a href="https://wa.link/of9k0l" target="_blank" class="absolute inset-0 flex items-center justify-center">
+      <img src="multimedia/whatsapp.png" alt="WhatsApp" class="absolute h-[90%]">
+    </a>
+  </div>
+
+  <!-- HEADER -->
+  <header id="inicio" class="relative w-full h-screen overflow-hidden text-white bg-[#F6FBFE]">
+    <img src="multimedia/header.jpeg"
+         alt="Header Image"
+         class="absolute bottom-0 left-1/2 w-[101%]
+                -translate-x-1/2 filter brightness-[0.55] z-0">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center px-4">
+      <h1 class="font-semibold uppercase tracking-wider text-xl sm:text-2xl md:text-3xl py-2">Centro Veterinario</h1>
+      <h2 class="font-extrabold text-4xl sm:text-5xl md:text-6xl py-2">Animal Space</h2>
+    </div>
+  </header>
+
+  <!-- SECCIÓN NOSOTROS -->
+  <section id="nosotros" class="bg-[#095daa] text-white py-16 px-4">
+    <!-- Contenedor con 2 columnas: Imagen y Texto -->
+    <div class="container mx-auto flex flex-col md:flex-row md:items-center gap-8">
+      <!-- Columna de la Imagen -->
+      <div class="md:w-1/2 flex justify-center">
+        <img src="multimedia/nosotros.png"
+             alt="Nosotros"
+             class="max-w-full h-auto">
+      </div>
+      <!-- Columna del Texto -->
+      <div class="md:w-1/2">
+        <h2 class="uppercase text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wide mb-4">
+          Sobre Nosotros
+        </h2>
+        <p class="text-lg sm:text-xl leading-relaxed mb-6">
+          Desde nuestra fundación el 17 de noviembre de 2018, en Animal Space hemos apostado por la innovación y la excelencia en el cuidado de los animales. Inicialmente comenzamos como Veterinaria Animal Space, y con el tiempo hemos incorporado equipos de última generación para cubrir las necesidades de cada mascota. En mayo de 2022, nos convertimos en el <strong>CENTRO VETERINARIO ANIMAL SPACE</strong>, destacándonos por nuestro servicio profesional y un compromiso genuino con el bienestar de cada paciente.
+        </p>
+        <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-2">Misión</h3>
+        <p class="text-lg sm:text-xl leading-relaxed">
+          Nuestro objetivo es ofrecer un lugar seguro y confiable para la comunidad de Carabayllo, donde cada mascota reciba atención personalizada de profesionales en salud veterinaria. Con servicios de salud y estética de alta calidad, tecnología de punta y un equipo comprometido, nos esforzamos por garantizar la mejor experiencia para ti y tu fiel compañero.
+        </p>
+      </div>
+    </div>
+
+    <!-- Segunda fila: 3 tarjetas con servicios -->
+    <div class="container mx-auto mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Tarjeta 1 -->
+      <div class="bg-[#282E33] rounded-lg p-6 flex flex-col items-center">
+        <div class="mb-4 h-32 flex justify-center items-center overflow-hidden">
+          <img src="multimedia/food.png" alt="Alimento para mascotas" class="h-full object-contain">
+        </div>
+        <h4 class="text-xl font-semibold uppercase mb-2">Alimento para mascotas</h4>
+        <p class="text-sm sm:text-base leading-relaxed">
+          Ofrecemos una amplia selección de alimentos premium para perros y gatos, adaptados a cada etapa y necesidad nutricional. Garantizamos calidad y sabor en cada producto para mantener a tu mascota sana y feliz.
+        </p>
+      </div>
+      <!-- Tarjeta 2 -->
+      <div class="bg-[#282E33] rounded-lg p-6 flex flex-col items-center">
+        <div class="mb-4 h-32 flex justify-center items-center overflow-hidden">
+          <img src="multimedia/care.png" alt="Cuidado de tu mascota" class="h-full object-contain">
+        </div>
+        <h4 class="text-xl font-semibold uppercase mb-2">Cuidado de tu mascota</h4>
+        <p class="text-sm sm:text-base leading-relaxed">
+          Nuestro equipo de profesionales ofrece consultas, tratamientos y cirugías con equipamiento de última generación. Además, contamos con servicios de internamiento diurno y monitoreo constante para garantizar el bienestar de tu engreído.
+        </p>
+      </div>
+      <!-- Tarjeta 3 -->
+      <div class="bg-[#282E33] rounded-lg p-6 flex flex-col items-center">
+        <div class="mb-4 h-32 flex justify-center items-center overflow-hidden">
+          <img src="multimedia/health.png" alt="Salud de tu mascota" class="h-full object-contain">
+        </div>
+        <h4 class="text-xl font-semibold uppercase mb-2">Salud de tu mascota</h4>
+        <p class="text-sm sm:text-base leading-relaxed">
+          En Animal Space, priorizamos la salud de tu mascota con diagnósticos precisos y tratamientos eficaces. Contamos con rayos X, ecografía, anestesia inhalatoria y un equipo médico calificado para brindar un cuidado de excelencia.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN CATEGORÍAS -->
+  <section id="categorias" class="relative w-full bg-[#f7fbfe] py-16">
+    <p class="text-center text-2xl sm:text-3xl uppercase font-semibold tracking-wider mb-10">
+      Nuestras Categorías
+    </p>
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-center gap-8 px-4">
+      <!-- Izquierda: 4 íconos -->
+      <div class="md:w-2/3 grid grid-cols-2 gap-6">
+        <!-- Card 1 -->
+        <div class="flex flex-col items-center">
+          <img src="multimedia/dog.png" alt="Perros" class="h-20 mb-2">
+          <p class="uppercase text-lg font-medium">Perros</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="flex flex-col items-center">
+          <img src="multimedia/cat.png" alt="Gatos" class="h-20 mb-2">
+          <p class="uppercase text-lg font-medium">Gatos</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="flex flex-col items-center">
+          <img src="multimedia/cat.png" alt="Gatos" class="h-20 mb-2" style="transform: scaleX(-1);">
+          <p class="uppercase text-lg font-medium">Gatos</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="flex flex-col items-center">
+          <img src="multimedia/dog.png" alt="Perros" class="h-20 mb-2" style="transform: scaleX(-1);">
+          <p class="uppercase text-lg font-medium">Perros</p>
+        </div>
+      </div>
+      <!-- Derecha: imagen -->
+      <div class="md:w-1/3 rounded-md overflow-hidden">
+        <img src="multimedia/cate.jpeg" alt="Categorías" class="w-full h-auto" style="transform: scaleX(-1);">
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN MAPA -->
+  <section id="map" class="relative h-[65vh] w-full">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d976.273797960332!2d-77.04243193469281!3d-11.828606543129542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105d78324933b13%3A0xb291ed8abbc4421!2sCl%C3%ADnica%20veterinaria%20Animal%20Space!5e0!3m2!1ses!2spe!4v1645880018016!5m2!1ses!2spe"
+      allowfullscreen=""
+      loading="lazy"
+      class="relative h-full w-full border-0">
+    </iframe>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contacto" class="relative h-screen w-full overflow-hidden">
+    <img src="multimedia/footer.jpg"
+         alt="Footer Background"
+         class="absolute top-0 left-1/2 w-[101%] -translate-x-1/2 z-0">
+    <div class="absolute top-1/2 left-[30%] h-[90%] w-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1A1A1A] rounded-[15px]">
+      <h1 class="relative flex justify-center items-center text-[4.5vw] text-white m-0 h-[20%]">
+        Contáctenos
+      </h1>
+      <div class="relative float-left h-[80%] w-1/2">
+        <div class="relative float-left h-1/2 w-full">
+          <div class="absolute flex items-center justify-center px-[1vw] top-0 w-full h-[60%]">
+            <!-- Invertir color de la imagen -->
+            <img src="multimedia/location.png"
+                 alt="Ubicación"
+                 class="absolute h-[85%]"
+                 style="filter: invert(1);">
+          </div>
+          <p class="absolute flex items-center justify-center w-full text-center bottom-[20%] h-[20%]
+                    text-[18px] font-bold uppercase text-[#999999] m-0">
+            Ubícanos en
+          </p>
+          <p class="absolute flex items-center justify-center w-full text-center bottom-0 text-[18px] text-white h-[20%] m-0">
+            Av. Lomas de Carabayllo Mz H Lote 3, Las Casuarinas, Carabayllo 07031
+          </p>
+        </div>
+        <div class="relative float-left h-1/2 w-full">
+          <div class="absolute flex items-center justify-center px-[1vw] top-0 w-full h-[60%]">
+            <img src="multimedia/phone.png"
+                 alt="Teléfono"
+                 class="absolute h-[85%]"
+                 style="filter: invert(1);">
+          </div>
+          <p class="absolute flex items-center justify-center w-full text-center bottom-[20%] h-[20%]
+                    text-[18px] font-bold uppercase text-[#999999] m-0">
+            Teléfono
+          </p>
+          <p class="absolute flex items-center justify-center w-full text-center bottom-0 text-[18px] text-white h-[20%] m-0">
+            +51 989 786 349 / +51 932 325 583
+          </p>
+        </div>
+      </div>
+      <div class="relative float-left h-[80%] w-1/2">
+        <div class="relative float-left h-1/2 w-full">
+          <div class="absolute flex items-center justify-center px-[1vw] top-0 w-full h-[60%]">
+            <img src="multimedia/mail.png"
+                 alt="Correo Electrónico"
+                 class="absolute h-[85%]"
+                 style="filter: invert(1);">
+          </div>
+          <p class="absolute flex items-center justify-center w-full text-center bottom-[20%] h-[20%]
+                    text-[18px] font-bold uppercase text-[#999999] m-0">
+            Correo Electrónico
+          </p>
+          <p class="absolute flex items-center justify-center w-full text-center bottom-0 text-[18px] text-white h-[20%] m-0">
+            correo@gmail.com
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT: Toggle menú en móvil + Ocultar/mostrar navbar al hacer scroll -->
+  <script>
+    // Menú responsive al hacer clic en ícono
+    function myFunction() {
+      var nav = document.getElementById("myTopnav");
+      var links = nav.querySelectorAll(".nava");
+      if (nav.classList.contains("responsive")) {
+        nav.classList.remove("responsive");
+        links.forEach(link => {
+          link.classList.add("hidden");
+          link.classList.remove("block", "w-full", "text-center", "py-4", "bg-[rgba(0,0,0,0.7)]", "text-white/80", "text-[20px]");
+        });
+      } else {
+        nav.classList.add("responsive");
+        links.forEach(link => {
+          link.classList.remove("hidden");
+          link.classList.add("block", "w-full", "text-center", "py-4", "bg-[rgba(0,0,0,0.7)]", "text-white/80", "text-[20px]");
+        });
+      }
+    }
+
+    // Detectar scroll para ocultar/mostrar navbar
+    let lastScrollTop = 0;
+    const nav = document.getElementById("myTopnav");
+
+    window.addEventListener("scroll", function() {
+      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      // Si se hace scroll hacia abajo (current > last)
+      if (currentScroll > lastScrollTop) {
+        // Ocultar navbar (transición hacia arriba)
+        nav.classList.add("-translate-y-full");
+      } else {
+        // Mostrar navbar (transición hacia abajo)
+        nav.classList.remove("-translate-y-full");
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+  </script>
+</body>
+</html>

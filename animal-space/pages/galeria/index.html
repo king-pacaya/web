@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+  <meta property="og:locale" content="es_PE"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Animal Space | Veterinaria"/>
+  <meta property="og:description" content="Animal Space, el amor que tu mascota necesita"/>
+  <meta property="og:url" content="https://www.pagina.com"/>
+  <meta property="og:site_name" content="pagina.com"/>
+  <meta name="description" content="Animal Space, el amor que tu mascota necesita"/>
+  <meta name="keywords" content="Animal Space, Veterinaria, veterinaria, perros, Perros, Carabayllo"/>
+
+  <!-- Normalize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome v6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../../multimedia/favicon.png">
+
+  <title>Galería</title>
+
+  <!-- Estilos globales -->
+  <style>
+    * { font-family: 'Montserrat', sans-serif; }
+    body { padding-top: 15vh; }
+  </style>
+</head>
+<body class="relative">
+
+  <!-- Botón de WhatsApp -->
+  <div class="fixed bottom-4 right-4 h-12 w-12 z-[99] overflow-hidden">
+    <a href="https://wa.link/of9k0l" target="_blank" class="flex items-center justify-center w-full h-full">
+      <img src="../../multimedia/whatsapp.png" alt="WhatsApp" class="h-[90%]">
+    </a>
+  </div>
+
+  <!-- NAVBAR (con animación de ocultar/mostrar al hacer scroll) -->
+  <nav id="myTopnav" class="fixed top-0 w-full z-[99] bg-[rgba(0,0,0,0.6)] px-8 transition-transform duration-300 transform translate-y-0">
+    <div class="h-16 flex items-center">
+      <img src="../../multimedia/logo.png" alt="Logo" class="hidden md:block h-[70%] mr-4">
+      <a href="../../index.html#inicio" class="hidden md:inline-block text-white/80 text-sm py-2 px-3 hover:text-white hover:border-b-2 hover:border-white">Inicio</a>
+      <a href="../../index.html#nosotros" class="hidden md:inline-block text-white/80 text-sm py-2 px-3 hover:text-white hover:border-b-2 hover:border-white">Nosotros</a>
+      <a href="../../index.html#categorias" class="hidden md:inline-block text-white/80 text-sm py-2 px-3 hover:text-white hover:border-b-2 hover:border-white">Categorías</a>
+      <a href="../../pages/servicios/index.html" class="hidden md:inline-block text-white/80 text-sm py-2 px-3 hover:text-white hover:border-b-2 hover:border-white">Servicios</a>
+      <a href="../../pages/galeria/index.html" class="hidden md:inline-block text-white/80 text-sm py-2 px-3 border-b-2 border-white">Galería</a>
+      <a href="#contacto" class="hidden md:inline-block text-white/80 text-sm py-2 px-3 hover:text-white hover:border-b-2 hover:border-white">Contacto</a>
+      <!-- Ícono para móvil -->
+      <a href="javascript:void(0);" class="block md:hidden ml-auto text-white text-2xl" onclick="toggleMobileMenu()">&#9776;</a>
+    </div>
+    <!-- Menú móvil -->
+    <div id="mobileMenu" class="hidden flex-col">
+      <a href="../../index.html#inicio" class="block text-center py-2 text-white hover:bg-[rgba(0,0,0,0.7)]">Inicio</a>
+      <a href="../../index.html#nosotros" class="block text-center py-2 text-white hover:bg-[rgba(0,0,0,0.7)]">Nosotros</a>
+      <a href="../../index.html#categorias" class="block text-center py-2 text-white hover:bg-[rgba(0,0,0,0.7)]">Categorías</a>
+      <a href="../../pages/servicios/index.html" class="block text-center py-2 text-white hover:bg-[rgba(0,0,0,0.7)]">Servicios</a>
+      <a href="../../pages/galeria/index.html" class="block text-center py-2 text-white hover:bg-[rgba(0,0,0,0.7)]">Galería</a>
+      <a href="#contacto" class="block text-center py-2 text-white hover:bg-[rgba(0,0,0,0.7)]">Contacto</a>
+    </div>
+  </nav>
+
+  <!-- SECCIÓN GALERÍA -->
+  <section class="px-4 py-16 space-y-8">
+    <!-- Categoría: Nuestros clientes -->
+    <div>
+      <button class="gtitulo w-full text-center py-4 text-2xl font-semibold uppercase tracking-wide focus:outline-none" onclick="toggleGallery(this)">
+        Nuestros clientes 🐶🐱
+      </button>
+      <div class="gcontent grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden">
+        <!-- Se muestran los clientes -->
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/c1.jpeg" alt="Cliente 1" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/c2.jpeg" alt="Cliente 2" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/c3.jpeg" alt="Cliente 3" class="w-full h-full object-contain">
+        </div>
+        <!-- … (agrega los demás según corresponda) … -->
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/c27.jpeg" alt="Cliente 27" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+
+    <!-- Categoría: Nuestras instalaciones -->
+    <div>
+      <button class="gtitulo w-full text-center py-4 text-2xl font-semibold uppercase tracking-wide focus:outline-none" onclick="toggleGallery(this)">
+        Nuestras instalaciones 🏥
+      </button>
+      <div class="gcontent grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden">
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/i1.jpeg" alt="Instalación 1" class="w-full h-full object-contain">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/i2.jpeg" alt="Instalación 2" class="w-full h-full object-contain">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/i3.jpeg" alt="Instalación 3" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/i4.jpeg" alt="Instalación 4" class="w-full h-full object-contain">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/i5.jpeg" alt="Instalación 5" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+
+    <!-- Categoría: Nuestro petshop -->
+    <div>
+      <button class="gtitulo w-full text-center py-4 text-2xl font-semibold uppercase tracking-wide focus:outline-none" onclick="toggleGallery(this)">
+        Nuestro petshop 💳
+      </button>
+      <div class="gcontent grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden">
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/p1.jpeg" alt="Petshop 1" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/p2.jpeg" alt="Petshop 2" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/p3.jpeg" alt="Petshop 3" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/p4.jpeg" alt="Petshop 4" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/p5.jpeg" alt="Petshop 5" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/p6.jpeg" alt="Petshop 6" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/p7.jpeg" alt="Petshop 7" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/p8.jpeg" alt="Petshop 8" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/p9.jpeg" alt="Petshop 9" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/p10.jpeg" alt="Petshop 10" class="w-full h-full object-contain">
+        </div>
+      </div>
+    </div>
+
+    <!-- Categoría: Nuestros equipos -->
+    <div>
+      <button class="gtitulo w-full text-center py-4 text-2xl font-semibold uppercase tracking-wide focus:outline-none" onclick="toggleGallery(this)">
+        Nuestros equipos 💳
+      </button>
+      <div class="gcontent grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 hidden">
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/e1.jpeg" alt="Equipo 1" class="w-full h-full object-contain">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/e2.jpeg" alt="Equipo 2" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/e3.jpeg" alt="Equipo 3" class="w-full h-full object-contain">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/e4.jpeg" alt="Equipo 4" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/e5.jpeg" alt="Equipo 5" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/e6.jpeg" alt="Equipo 6" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/e7.jpeg" alt="Equipo 7" class="w-full h-full object-cover">
+        </div>
+        <div class="imagen relative aspect-square overflow-hidden rounded-[15px] shadow-xl">
+          <img src="../../multimedia/e8.jpeg" alt="Equipo 8" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contacto" class="relative h-screen w-full overflow-hidden">
+    <img src="../../multimedia/footer.jpg" alt="Footer Background" class="absolute top-0 left-1/2 w-[101%] -translate-x-1/2 z-0">
+    <div class="absolute top-1/2 left-[30%] h-[90%] w-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1A1A1A] rounded-[15px] p-4">
+      <h1 class="flex justify-center items-center text-white text-4xl h-1/5 m-0">Contáctenos</h1>
+      <div class="flex flex-col md:flex-row justify-around items-center h-4/5">
+        <div class="flex flex-col items-center mb-4 md:mb-0">
+          <div class="flex items-center justify-center h-16 w-16">
+            <img src="../../multimedia/location.png" alt="Ubicación" class="h-full" style="filter: invert(1);">
+          </div>
+          <p class="text-sm text-[#999999] uppercase font-bold">Ubícanos en</p>
+          <p class="text-sm text-white text-center">Av. Lomas de Carabayllo Mz H Lote 3 Las Casuarinas, Carabayllo 07031</p>
+        </div>
+        <div class="flex flex-col items-center mb-4 md:mb-0">
+          <div class="flex items-center justify-center h-16 w-16">
+            <img src="../../multimedia/phone.png" alt="Teléfono" class="h-full" style="filter: invert(1);">
+          </div>
+          <p class="text-sm text-[#999999] uppercase font-bold">Teléfono</p>
+          <p class="text-sm text-white text-center">+51 989 786 349 / +51 932 325 583</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="flex items-center justify-center h-16 w-16">
+            <img src="../../multimedia/mail.png" alt="Correo Electrónico" class="h-full" style="filter: invert(1);">
+          </div>
+          <p class="text-sm text-[#999999] uppercase font-bold">Correo Electrónico</p>
+          <p class="text-sm text-white text-center">correo@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Toggle menú móvil
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById("mobileMenu");
+      mobileMenu.classList.toggle("hidden");
+    }
+
+    // Animación del topnav al hacer scroll
+    let lastScrollTop = 0;
+    const nav = document.getElementById("myTopnav");
+    window.addEventListener("scroll", function() {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScroll > lastScrollTop) {
+        nav.classList.add("-translate-y-full");
+      } else {
+        nav.classList.remove("-translate-y-full");
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+
+    // Función para togglear la visibilidad de cada sección de la galería
+    function toggleGallery(element) {
+      const content = element.nextElementSibling;
+      content.classList.toggle("hidden");
+    }
+  </script>
+</body>
+</html>

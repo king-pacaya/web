@@ -1,0 +1,62 @@
+body {
+padding-top: 15vh;
+}
+
+section {
+position: relative;
+height: auto;
+width: 100%;
+display: flex;
+flex-wrap: wrap;
+}
+section .gtitulo {
+position: relative;
+width: 100%;
+text-align: center;
+padding: 2vh 0;
+font-size: 30px;
+font-family: 'Ubuntu', sans-serif;
+font-weight: 400;
+text-transform: uppercase;
+width: 100%;
+outline: none;
+border: none;
+/*cursor: pointer;
+transition: 0.3s ease;
+background-color: #eee;
+color: #444;*/
+}
+
+/*.gactive, .gtitulo:hover {
+background-color: #121212;
+color: #ccc;
+}*/
+
+section .imagen {
+float: left;
+display: flex;
+align-items: center;
+justify-content: center;
+width: calc(100vw/3.25);
+height: calc(100vw/3.25);
+margin: 2vh 1vw;
+overflow: hidden;
+border-radius: 15px;
+box-shadow: 0vw 1vh 15px rgb(0 0 0 / 60%);
+}
+
+.ih {
+height: 100%;
+width: auto;
+border-radius: 15px;
+}
+
+.iv {
+height: auto;
+width: 100%;
+border-radius: 15px;
+}
+
+.gcontent {
+display: none;
+}
