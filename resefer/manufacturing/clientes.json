@@ -1,0 +1,110 @@
+{
+  "Nacionales": [
+    {
+      "nombre": "Compañía Minera SIMSA S.A",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Compañía Minera Alpayana",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Compañía Minera Volcan S.A.",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Compañía de Minas Buenaventura S.A.",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Consorcio Minero Horizonte S.A.",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Compañía Minera Nyrstar",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Compañía Minera San Valentín Sa.",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Zicsa Contratistas Generales Sa.",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Mirovidal y Compañía S.A.C.",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Gave Servicios Generales S.A.C.",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Jrc S.A.C.",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Extranmin S.A.C.",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Austria Duvaz S.A.C.",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Canchanuya Ingenieros S.R.L",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Brexia goldplata Perú S.A.C.",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Cia Minera Raura S.A.",
+      "url_imagen": ""
+    }
+  ],
+  "Internacionales": [
+    {
+      "nombre": "Serabi Mineração Ltda",
+      "pais": "Brasil",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Sinchiwaira S.A.",
+      "pais": "Bolivia",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Panamerican Silver",
+      "pais": "Bolivia",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Sociedad Minero Metalurgia Reserva Ltda.",
+      "pais": "Bolivia",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Rentas Palacios Ltda.",
+      "pais": "Chile",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "El Mochito",
+      "pais": "Honduras",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "RD tools",
+      "pais": "Chile",
+      "url_imagen": ""
+    },
+    {
+      "nombre": "Canchanya",
+      "pais": "Nicaragua",
+      "url_imagen": ""
+    }
+  ]
+}
