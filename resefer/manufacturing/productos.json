@@ -1,0 +1,252 @@
+{
+  "Perforacion": {
+    "Triton": {
+      "nombre": "Triton",
+      "categoria": "Perforacion",
+      "informacion": "Los equipos Triton son la vanguardia en perforación minera, diseñados para optimizar la eficiencia y seguridad en operaciones subterráneas. Su tecnología permite una **perforación precisa y de alta velocidad**, esencial para la productividad en la extracción de minerales.\n\nEstos jumbos de perforación se destacan por su robustez y adaptabilidad a diversas condiciones geológicas, garantizando un **rendimiento superior y una reducción en los tiempos de ciclo** en la preparación de frentes de avance y galerías.",
+      "modelos": [
+        {
+          "nombre_modelo": "Triton Little",
+          "ancho": "1800 mm",
+          "largo": "10500 mm",
+          "alto": "2950 mm"
+        },
+        {
+          "nombre_modelo": "Triton DFS 14",
+          "ancho": "2000 mm",
+          "largo": "10900 mm",
+          "alto": "2950 mm"
+        },
+        {
+          "nombre_modelo": "Triton DFS 16",
+          "ancho": "2000 mm",
+          "largo": "10900 mm",
+          "alto": "2950 mm"
+        }
+      ],
+      "fotos_carpeta": "../multimedia/triton/",
+      "repuestos": []
+    },
+    "Nautilus": {
+      "nombre": "Nautilus",
+      "categoria": "Perforacion",
+      "informacion": "Los equipos Nautilus son **vehículos utilitarios multifuncionales** diseñados para operaciones en minería y túneles, destacando por su versatilidad y capacidad de adaptación. Permiten el **transporte de personal, materiales y herramientas** en espacios confinados, optimizando la logística interna y la eficiencia operativa.\n\nSu diseño compacto y potente los convierte en una solución ideal para tareas diversas, desde mantenimiento hasta soporte en áreas de difícil acceso, garantizando una **operación segura y continua** en las exigentes condiciones del subsuelo.",
+      "modelos": [
+        {
+          "nombre_modelo": "Nautilus Little",
+          "ancho": "1300 mm",
+          "largo": "9000 mm",
+          "alto": "2530 mm"
+        },
+        {
+          "nombre_modelo": "Nautilus DSB 1.6",
+          "ancho": "1600 mm",
+          "largo": "10850 mm",
+          "alto": "2900 mm"
+        },
+        {
+          "nombre_modelo": "Nautilus DSB 2.0",
+          "ancho": "1600 mm",
+          "largo": "10850 mm",
+          "alto": "2730 mm"
+        },
+        {
+          "nombre_modelo": "NAUTILUS DSB CC",
+          "ancho": "1600 mm",
+          "largo": "10850 mm",
+          "alto": "2900 mm"
+        },
+        {
+          "nombre_modelo": "NAUTILUS PS",
+          "ancho": "1400 mm",
+          "largo": "10050 mm",
+          "alto": "2530 mm"
+        },
+        {
+          "nombre_modelo": "NAUTILUS PSA",
+          "ancho": "1100 mm",
+          "largo": "4700 mm",
+          "alto": "1300 mm"
+        }
+      ],
+      "fotos_carpeta": "../multimedia/nautilus/",
+      "repuestos": [
+        {
+          "nombre": "MESA DE PERFORADORA COP 1838",
+          "empresa": ""
+        },
+        {
+          "nombre": "UNIDAD DE ROTACION",
+          "empresa": ""
+        },
+        {
+          "nombre": "SPANDING SFHAT",
+          "empresa": ""
+        },
+        {
+          "nombre": "Cilindros Hidraulicas",
+          "empresa": "Parker Hydraulics"
+        },
+        {
+          "nombre": "Ejes Diferenciales y Cajas reductoras",
+          "empresa": "SPICER"
+        },
+        {
+          "nombre": "BRAZO MANIPULADOR DE BARRAS",
+          "empresa": ""
+        },
+        {
+          "nombre": "MORDAZA",
+          "empresa": ""
+        },
+        {
+          "nombre": "Bombas Hidraulicas",
+          "empresa": "Rexroth Bosch Group"
+        },
+        {
+          "nombre": "Motores Electricos",
+          "empresa": "SIEMENS"
+        },
+        {
+          "nombre": "Motor Hidrostatico",
+          "empresa": "Rexroth Bosch Group"
+        }
+      ]
+    }
+  },
+  "Sostenimiento": {
+    "Rock Bolt": {
+      "nombre": "Rock Bolt",
+      "categoria": "Sostenimiento",
+      "informacion": "Los equipos Rock Bolt están diseñados para la **instalación de pernos de roca**, una tarea fundamental en la estabilización de túneles y galerías mineras. Su precisión y potencia aseguran una **fijación segura y eficiente**, vital para la seguridad estructural y operativa en excavaciones subterráneas.\n\nEstos equipos son esenciales para **prevenir derrumbes y garantizar la integridad de las labores mineras**, permitiendo avanzar con confianza en la excavación de nuevas áreas y manteniendo la seguridad del personal y los equipos. Su fiabilidad es clave en cualquier proyecto subterráneo.",
+      "modelos": [
+        {
+          "nombre_modelo": "Rock Bolt 320",
+          "ancho": "1600 mm",
+          "largo": "11000 mm",
+          "alto": "2800 mm"
+        },
+        {
+          "nombre_modelo": "Rock Bolt 420",
+          "ancho": "1600 mm",
+          "largo": "11000 mm",
+          "alto": "2800 mm"
+        },
+        {
+          "nombre_modelo": "Rock Bolt",
+          "ancho": "1300 mm",
+          "largo": "9200 mm",
+          "alto": "2700 mm"
+        }
+      ],
+      "fotos_carpeta": "../multimedia/rock-bolt/",
+      "repuestos": []
+    }
+  },
+  "Desate": {
+    "Rock Breaker": {
+      "nombre": "Rock Breaker",
+      "categoria": "Desate",
+      "informacion": "Los equipos Rock Breaker son cruciales para el **desate mecanizado de rocas**, una operación fundamental para la seguridad en minería subterránea. Permiten la remoción eficiente de rocas sueltas y peligrosas sin exponer al personal, **maximizando la seguridad y la continuidad operativa**.\n\nSu diseño robusto y capacidad de impacto aseguran un desate efectivo en diversas condiciones de roca, **reduciendo riesgos de accidentes y optimizando los ciclos de trabajo** en frentes de avance y galerías, haciendo de ellos una herramienta indispensable para un entorno minero seguro y productivo.",
+      "modelos": [],
+      "fotos_carpeta": "../multimedia/rock-breaker/",
+      "repuestos": []
+    },
+    "Ciclón": {
+      "nombre": "Ciclón",
+      "categoria": "Desate",
+      "informacion": "Los equipos Ciclón están diseñados para ofrecer una **ventilación robusta y eficiente** en entornos subterráneos, crucial para mantener la calidad del aire y la seguridad de los trabajadores. Su ingeniería avanzada garantiza un **flujo de aire óptimo y una operación confiable** incluso en las condiciones más exigentes.\n\nSon herramientas indispensables en la minería y otras industrias donde la ventilación es crítica, contribuyendo significativamente a la **productividad y al bienestar del personal** al remover gases nocivos y polvo, asegurando un ambiente de trabajo saludable.",
+      "modelos": [
+        {
+          "nombre_modelo": "Ciclón 4.0",
+          "ancho": "2200 mm",
+          "largo": "6820 mm",
+          "alto": "2500 mm"
+        },
+        {
+          "nombre_modelo": "Ciclón 1.5",
+          "ancho": "1400 mm",
+          "largo": "5840 mm",
+          "alto": "2200 mm"
+        }
+      ],
+      "fotos_carpeta": "../multimedia/ciclon/",
+      "repuestos": []
+    }
+  },
+  "Utilitario": {
+    "Rock Lift": {
+      "nombre": "Rock Lift",
+      "categoria": "Utilitario",
+      "informacion": "Los equipos Rock Lift están diseñados para la **elevación y transporte de materiales pesados** en entornos mineros, ofreciendo una solución robusta y segura para tareas de izaje y manejo de carga. Su capacidad y estabilidad son fundamentales para optimizar la logística subterránea y a cielo abierto.\n\nEstos equipos son esenciales para **maximizar la eficiencia en el movimiento de componentes y equipos**, contribuyendo a una operación minera fluida y reduciendo la necesidad de mano de obra en tareas de alto riesgo, garantizando un entorno de trabajo más seguro y productivo.",
+      "modelos": [
+        {
+          "nombre_modelo": "Rock Lift 420",
+          "ancho": "1600 mm",
+          "largo": "11000 mm",
+          "alto": "2800 mm"
+        }
+      ],
+      "fotos_carpeta": "../multimedia/rock-lift/",
+      "repuestos": []
+    },
+    "Spraymix": {
+      "nombre": "Spraymix",
+      "categoria": "Utilitario",
+      "informacion": "Los equipos Spraymix están diseñados para la **aplicación de shotcrete vía húmeda**, una técnica esencial para el sostenimiento y revestimiento de túneles y galerías mineras. Su avanzada tecnología asegura una **mezcla homogénea y una proyección eficiente**, crucial para la estabilidad estructural.\n\nEstos equipos son indispensables para **garantizar la seguridad y durabilidad de las labores mineras**, permitiendo una cobertura uniforme y rápida, lo que reduce los tiempos de inactividad y optimiza los procesos de construcción y mantenimiento subterráneo.",
+      "modelos": [
+        {
+          "nombre_modelo": "Spraymix Little",
+          "ancho": "1300 mm",
+          "largo": "9200 mm",
+          "alto": "2700 mm"
+        },
+        {
+          "nombre_modelo": "Spraymix",
+          "ancho": "1600 mm",
+          "largo": "11000 mm",
+          "alto": "2800 mm"
+        }
+      ],
+      "fotos_carpeta": "../multimedia/spraymix/",
+      "repuestos": []
+    }
+  },
+  "Otros": {
+    "Anfo Loader": {
+      "nombre": "Anfo Loader",
+      "categoria": "Otros",
+      "informacion": "Los Anfo Loaders son equipos especializados diseñados para la **carga de explosivos ANFO** en voladuras de minería. Su diseño robusto y tecnología avanzada permiten una **operación segura y eficiente** en entornos subterráneos y a cielo abierto, optimizando los tiempos de preparación.\n\nEstos equipos son cruciales para la **productividad en operaciones mineras**, asegurando una distribución uniforme del ANFO y reduciendo riesgos asociados a la manipulación de explosivos. Su versatilidad y diferentes capacidades los hacen adaptables a diversas escalas de proyectos.",
+      "modelos": [
+        {
+          "nombre_modelo": "ANFO LOADER 06",
+          "ancho": "1800 mm",
+          "largo": "10500 mm",
+          "alto": "2950 mm"
+        },
+        {
+          "nombre_modelo": "ANFO LOADER 07",
+          "ancho": "2000 mm",
+          "largo": "10900 mm",
+          "alto": "2950 mm"
+        }
+      ],
+      "capacidades_tanque": [
+        {
+          "serie": "SERIE 06 - A",
+          "capacidad_kg": 150
+        },
+        {
+          "serie": "SERIE 06 - B",
+          "capacidad_kg": 300
+        },
+        {
+          "serie": "SERIE 07 - C",
+          "capacidad_kg": 500
+        }
+      ],
+      "fotos_carpeta": "../multimedia/anfo-loader/",
+      "repuestos": []
+    }
+  }
+}

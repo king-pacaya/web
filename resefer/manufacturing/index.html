@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.svg">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
+        }
+        :root {
+            --blue: #0100FE;
+            --black: #0D0D0D;
+            --white: #F2F2F2;
+            --orange: #E4410A;
+            --light-gray: #F8F9FA;
+            --medium-gray: #E9ECEF;
+            --dark-gray: #DEE2E6;
+        }
+        body {
+            background-color: var(--white);
+            color: var(--black);
+            scroll-behavior: smooth;
+        }
+        .bg-blue-custom { background-color: var(--blue); }
+        .text-blue-custom { color: var(--blue); }
+        .bg-black-custom { background-color: var(--black); }
+        .text-black-custom { color: var(--black); }
+        .bg-white-custom { background-color: var(--white); }
+        .text-white-custom { color: var(--white); }
+        .text-orange-custom { color: var(--orange); }
+        .bg-light-gray { background-color: var(--light-gray); }
+        .bg-medium-gray { background-color: var(--medium-gray); }
+
+        /* Animaciones */
+        .animate-on-scroll {
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        .animate-on-scroll.animated {
+            opacity: 1;
+        }
+        .slide-up {
+            transform: translateY(30px);
+        }
+        .slide-up.animated {
+            transform: translateY(0);
+        }
+        .fade-in {
+            opacity: 0;
+        }
+        .fade-in.animated {
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
+        }
+        .hero-title {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+            transition: top 0.3s ease-in-out; /* Smooth transition for hiding/showing */
+        }
+        .top-nav.hidden-nav {
+            top: -100px; /* Hide completely */
+        }
+        .top-nav a {
+            color: var(--black);
+            position: relative;
+        }
+        .top-nav a:hover {
+            color: var(--blue);
+        }
+        .top-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--blue);
+            transition: width 0.3s ease;
+        }
+        .top-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown specific styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 0.375rem;
+            overflow: hidden;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            border: 1px solid var(--medium-gray);
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a {
+            color: var(--black);
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            white-space: nowrap;
+            position: relative;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .dropdown-content a:hover {
+            background-color: var(--light-gray);
+            color: var(--blue);
+        }
+        .dropdown-content a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--blue);
+            transition: width 0.3s ease;
+        }
+        .dropdown-content a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Dropdown */
+        .mobile-dropdown-content {
+            display: none;
+            flex-direction: column;
+            padding-left: 1rem;
+            border-left: 2px solid var(--medium-gray);
+            margin-top: 0.5rem;
+        }
+        .mobile-dropdown-content.open {
+            display: flex;
+        }
+        .mobile-dropdown-content a {
+            padding: 0.5rem 0;
+            color: var(--black);
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+        .mobile-dropdown-content a:hover {
+            color: var(--blue);
+        }
+
+        /* Section Titles */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: -8px;
+            left: 0;
+            background: linear-gradient(90deg, var(--blue), transparent);
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--white);
+            border: 1px solid var(--medium-gray);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--blue);
+        }
+
+        /* Service Cards */
+        .service-card {
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            height: 100%;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--blue);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        .service-icon-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(1, 0, 254, 0.1), rgba(1, 0, 254, 0.2));
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover .service-icon-container {
+            background: linear-gradient(135deg, rgba(1, 0, 254, 0.2), rgba(1, 0, 254, 0.3));
+            transform: rotate(15deg);
+        }
+        .service-icon-container .iconify {
+            color: var(--blue);
+            font-size: 2.5rem;
+        }
+
+        /* Client List */
+        .client-list-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .client-list-item:hover {
+            background-color: var(--medium-gray);
+            transform: translateX(5px);
+        }
+        .client-list-item .iconify {
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        /* Contact Section */
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .contact-info-item:last-child {
+            border-bottom: none;
+        }
+        .contact-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background-color: var(--white);
+            z-index: 1100;
+            transition: right 0.3s ease;
+            padding: 2rem;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            overflow-y: auto; /* Added for mobile menu scrollability */
+        }
+        .mobile-menu.open {
+            right: 0;
+        }
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1099;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            .section-title::after {
+                bottom: -5px;
+            }
+        }
+    </style>
+    <title>Resefer Manufacturing</title>
+</head>
+<body class="overflow-x-hidden">
+    <nav class="top-nav py-4">
+        <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">
+                <span class="text-black-custom">RESEFER</span> <span class="text-blue-custom">MANUFACTURING</span>
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="font-medium">Nosotros</a>
+                <a href="#services" class="font-medium">Servicios</a>
+                <div class="dropdown">
+                    <a href="productos.php" class="font-medium">
+                        Productos <span class="iconify inline-block ml-1" data-icon="heroicons:chevron-down-20-solid"></span>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="productos.php?category=Perforacion">Perforación</a>
+                        <a href="productos.php?category=Sostenimiento">Sostenimiento</a>
+                        <a href="productos.php?category=Desate">Desate</a>
+                        <a href="productos.php?category=Utilitario">Utilitario</a>
+                        <a href="productos.php?category=Otros">Otros</a>
+                    </div>
+                </div>
+                <a href="#clients" class="font-medium">Clientes</a>
+                <a href="#contact" class="font-medium">Contacto</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-black-custom">
+                <span class="iconify text-3xl" data-icon="heroicons:bars-3"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="flex justify-end mb-8">
+            <button id="mobile-menu-close" class="text-black-custom">
+                <span class="iconify text-3xl" data-icon="heroicons:x-mark"></span>
+            </button>
+        </div>
+        <div class="flex flex-col space-y-6">
+            <a href="#about" class="text-xl font-medium py-2 border-b border-gray-200">Nosotros</a>
+            <a href="#services" class="text-xl font-medium py-2 border-b border-gray-200">Servicios</a>
+            <div class="relative">
+                <button id="mobile-products-button" class="text-xl font-medium py-2 w-full text-left flex justify-between items-center border-b border-gray-200">
+                    Productos <span class="iconify text-2xl" data-icon="heroicons:chevron-down-20-solid"></span>
+                </button>
+                <div id="mobile-products-dropdown" class="mobile-dropdown-content">
+                    <a href="productos.php?category=Perforacion" class="py-1">Perforación</a>
+                    <a href="productos.php?category=Sostenimiento" class="py-1">Sostenimiento</a>
+                    <a href="productos.php?category=Desate" class="py-1">Desate</a>
+                    <a href="productos.php?category=Utilitario" class="py-1">Utilitario</a>
+                    <a href="productos.php?category=Otros" class="py-1">Otros</a>
+                </div>
+            </div>
+            <a href="#clients" class="text-xl font-medium py-2 border-b border-gray-200">Clientes</a>
+            <a href="#contact" class="text-xl font-medium py-2 border-b border-gray-200">Contacto</a>
+        </div>
+    </div>
+
+    <section class="relative h-screen flex items-center justify-center text-white-custom overflow-hidden pt-16">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('../multimedia/resefer-manufacturing.jpg');">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        <div class="relative z-10 text-center px-4 animate-on-scroll slide-up">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight hero-title">
+                <span class="text-black-custom">RESEFER</span> <span class="text-blue-custom">MANUFACTURING</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-on-scroll fade-in text-black-custom" style="transition-delay: 0.2s">
+                Innovación y calidad en la fabricación de equipos para la industria minera
+            </p>
+            <a href="#services" class="inline-flex items-center bg-blue-custom text-white-custom px-8 py-3 text-lg font-bold uppercase tracking-wider hover:bg-black-custom hover:text-white-custom transition-colors duration-300 animate-on-scroll fade-in" style="transition-delay: 0.4s">
+                Nuestros Servicios
+                <span class="iconify inline-block ml-2 text-2xl" data-icon="akar-icons:arrow-right"></span>
+            </a>
+        </div>
+        <div class="absolute bottom-8 left-0 right-0 flex justify-center animate-on-scroll fade-in" style="transition-delay: 0.6s">
+            <a href="#about" class="text-black-custom animate-bounce">
+                <span class="iconify text-4xl" data-icon="material-symbols:keyboard-double-arrow-down"></span>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white-custom">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2 animate-on-scroll slide-up">
+                    <h2 class="text-4xl font-bold mb-6 text-black-custom section-title">Sobre <span class="text-blue-custom">Resefer Manufacturing</span></h2>
+                    <div class="w-20 h-1 bg-blue-custom mb-8 animate-on-scroll fade-in"></div>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-blue-custom mb-4 flex items-center">
+                                <span class="iconify mr-2" data-icon="mdi:target"></span>
+                                Misión
+                            </h3>
+                            <p class="text-lg mb-6">
+                                Diseñar y fabricar equipos para el sector minero con la mejor relación precio-calidad, brindando seguridad a los colaboradores, optimizando procesos y comprometidos con el medio ambiente.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-blue-custom mb-4 flex items-center">
+                                <span class="iconify mr-2" data-icon="mdi:eye-outline"></span>
+                                Visión
+                            </h3>
+                            <p class="text-lg">
+                                Consolidarnos como empresa competitiva y confiable a nivel nacional e internacional en la fabricación de equipos para actividades mineras.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 animate-on-scroll slide-up" style="transition-delay: 0.1s">
+                    <div class="relative">
+                        <img src="../multimedia/resefer-manufacturing.jpg" alt="Taller de Resefer Manufacturing" class="w-full shadow-xl">
+                        <div class="absolute -bottom-4 -right-4 w-32 h-32 border-4 border-blue-custom bg-white p-4 flex items-center justify-center">
+                            <span class="iconify text-5xl text-blue-custom" data-icon="mdi:factory"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-light-gray">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                 <h2 class="text-4xl font-bold text-black-custom animate-on-scroll slide-up section-title">Nuestros <span class="text-blue-custom">Servicios</span></h2>
+                 <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto animate-on-scroll slide-up" style="transition-delay: 0.1s;">Soluciones integrales para potenciar la productividad y seguridad en sus operaciones mineras.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-card card animate-on-scroll slide-up">
+                    <div class="service-icon-container">
+                        <span class="iconify" data-icon="ic:baseline-engineering"></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-black-custom">Servicios de Ingeniería</h3>
+                    <p class="text-gray-600 mb-4 text-left">
+                        Transformamos ideas en prototipos tangibles con soluciones innovadoras.
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 text-left text-gray-700">
+                        <li>Diseño y prueba</li>
+                        <li>Validación técnica</li>
+                        <li>Construcción y envío</li>
+                    </ul>
+                </div>
+
+                <div class="service-card card animate-on-scroll slide-up" style="transition-delay: 0.1s">
+                    <div class="service-icon-container">
+                         <span class="iconify" data-icon="clarity:wrench-solid"></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-black-custom">Mantenimiento en Taller</h3>
+                    <p class="text-gray-600 mb-4 text-left">
+                        Taller equipado con maquinaria de última generación para mantenimiento y reparación.
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 text-left text-gray-700">
+                        <li>Reparación de perforadoras</li>
+                        <li>Conversiones de componentes</li>
+                        <li>Fabricaciones de calidad</li>
+                    </ul>
+                </div>
+
+                <div class="service-card card animate-on-scroll slide-up" style="transition-delay: 0.2s">
+                     <div class="service-icon-container">
+                        <span class="iconify" data-icon="solar:tag-price-bold"></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-black-custom">Venta de Repuestos</h3>
+                    <p class="text-gray-600 mb-4 text-left">
+                       Repuestos de calidad garantizada para equipos de marcas líderes del sector.
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 text-left text-gray-700">
+                        <li>Vigas y unidades de rotación</li>
+                        <li>Cilindros hidráulicos</li>
+                        <li>Aceros de perforación</li>
+                    </ul>
+                </div>
+
+                <div class="service-card card animate-on-scroll slide-up" style="transition-delay: 0.3s">
+                     <div class="service-icon-container">
+                        <span class="iconify" data-icon="carbon:group-presentation"></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-black-custom">Capacitaciones</h3>
+                    <p class="text-gray-600 mb-4 text-left">
+                        Cursos personalizados para mejorar la productividad y rentabilidad de su equipo.
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 text-left text-gray-700">
+                        <li>Formación teórica y práctica</li>
+                        <li>Adaptado a sus necesidades</li>
+                        <li>Equipos multimarca</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="clients" class="py-20 bg-white-custom">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16 text-black-custom animate-on-scroll slide-up section-title">Nuestros <span class="text-blue-custom">Clientes</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 animate-on-scroll slide-up">
+                <div>
+                    <h3 class="text-2xl font-semibold text-blue-custom mb-6 flex items-center">
+                        <span class="iconify w-6 h-6 mr-2" data-icon="flag:pe-4x3"></span>
+                        Clientes Nacionales
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="mdi:check-circle"></span>
+                            Compañía Minera SIMSA S.A
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="mdi:check-circle"></span>
+                            Compañía Minera Alpayana
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="mdi:check-circle"></span>
+                            Compañía Minera Volcan S.A.
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="mdi:check-circle"></span>
+                            Compañía de Minas Buenaventura S.A.
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="mdi:check-circle"></span>
+                            Consorcio Minero Horizonte S.A.
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="mdi:check-circle"></span>
+                            Compañía Minera Nyrstar
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="mdi:check-circle"></span>
+                            Compañía Minera San Valentín Sa.
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="mdi:check-circle"></span>
+                            Zicsa Contratistas Generales Sa.
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="mdi:check-circle"></span>
+                            Mirovidal y Compañía S.A.C.
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="mdi:check-circle"></span>
+                            Gave Servicios Generales S.A.C.
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="mdi:check-circle"></span>
+                            Jrc S.A.C.
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="mdi:check-circle"></span>
+                            Extranmin S.A.C.
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="mdi:check-circle"></span>
+                            Austria Duvaz S.A.C.
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="mdi:check-circle"></span>
+                            Canchanuya Ingenieros S.R.L
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="mdi:check-circle"></span>
+                            Brexia goldplata Perú S.A.C.
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="mdi:check-circle"></span>
+                            Cia Minera Raura S.A.
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-blue-custom mb-6">Clientes Internacionales</h3>
+                    <div class="space-y-4">
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="flag:br-4x3"></span>
+                            Serabi Mineração Ltda (Brasil)
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="flag:bo-4x3"></span>
+                            Sinchiwaira S.A. (Bolivia)
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="flag:bo-4x3"></span>
+                            Panamerican Silver (Bolivia)
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="flag:bo-4x3"></span>
+                            Sociedad Minero Metalurgia Reserva Ltda. (Bolivia)
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="flag:cl-4x3"></span>
+                            Rentas Palacios Ltda. (Chile)
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="flag:cl-4x3"></span>
+                            RD tools (Chile)
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="flag:hn-4x3"></span>
+                            El Mochito (Honduras)
+                        </div>
+                        <div class="client-list-item">
+                            <span class="iconify text-blue-custom" data-icon="flag:ni-4x3"></span>
+                            Canchanya (Nicaragua)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-light-gray">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-4xl font-bold text-center mb-10 text-black-custom animate-on-scroll slide-up section-title">Contáctanos</h2>
+            <div class="w-20 h-1 bg-blue-custom mb-12 mx-auto animate-on-scroll fade-in" style="transition-delay: 0.2s"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 animate-on-scroll slide-up">
+                <div class="bg-blue-custom text-white-custom p-8 md:p-12 flex flex-col justify-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Información de Contacto</h3>
+                        <div class="space-y-6">
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <span class="iconify text-2xl" data-icon="mdi:email-outline"></span>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg mb-1">Correo Electrónico</p>
+                                    <a href="mailto:ventas@resefer.com" class="hover:underline">ventas@resefer.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <span class="iconify text-2xl" data-icon="mdi:whatsapp"></span>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg mb-1">WhatsApp</p>
+                                    <a href="https://wa.me/51975054580" target="_blank" class="hover:underline">+51 975 054 580</a>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <span class="iconify text-2xl" data-icon="mdi:map-marker-outline"></span>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg mb-1">Dirección</p>
+                                    <p>Calle Las Fraguas Mza. "B" Lote 18<br>Independencia - Lima - Perú</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white-custom p-0 shadow-sm">
+                    <div class="h-full w-full">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.9488060942176!2d-77.0636057!3d-11.978044299999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105ce4974a207d7%3A0x427c44e5c294c813!2sLas%20Fraguas%20318%2C%20Lima%2015311!5e0!3m2!1ses-419!2spe!4v1752524872192!5m2!1ses-419!2spe"
+                            style="border:0; width: 100%; height: 100%; min-height: 400px;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Ubicación de Resefer Manufacturing"
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black-custom text-white-custom py-12">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="../" class="text-3xl font-bold"><span class="text-white-custom">RESEFER</span> <span class="text-orange-custom">GROUP</span></a>
+                    <p class="mt-2 text-gray-400">Soluciones industriales de clase mundial</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="" class="text-gray-400 hover:text-orange-custom transition-colors">
+                        <span class="iconify text-2xl" data-icon="mdi:web"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center md:text-left">
+                <p class="text-gray-400">© 2025 Resefer Group. Todos los derechos reservados.</p>
+                <p class="text-sm opacity-70 mt-2">
+                    Diseñado por <a href="https://king-pacaya.github.io" target="_blank" class="text-white-custom hover:text-orange-custom transition-colors">King Pacaya</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mobileMenu.classList.contains('open')) {
+                        toggleMobileMenu();
+                    }
+                }
+            });
+        });
+
+        // Scroll animation trigger
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        function checkScroll() {
+            const windowHeight = window.innerHeight;
+            const triggerPoint = windowHeight * 0.85;
+
+            animatedElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+
+                if (elementTop < triggerPoint) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+
+        // Top nav hide/show on scroll
+        const topNav = document.querySelector('.top-nav');
+        let lastScrollY = window.scrollY;
+
+        function handleNavScroll() {
+            if (window.scrollY > lastScrollY && window.scrollY > 100) { // Scrolling down and past a threshold
+                topNav.classList.add('hidden-nav');
+            } else if (window.scrollY < lastScrollY) { // Scrolling up
+                topNav.classList.remove('hidden-nav');
+            }
+            lastScrollY = window.scrollY;
+        }
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('open');
+            mobileMenuOverlay.classList.toggle('open');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+        mobileMenuClose.addEventListener('click', toggleMobileMenu);
+        mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
+        });
+
+        // Mobile Products Dropdown Toggle
+        const mobileProductsButton = document.getElementById('mobile-products-button');
+        const mobileProductsDropdown = document.getElementById('mobile-products-dropdown');
+
+        mobileProductsButton.addEventListener('click', () => {
+            mobileProductsDropdown.classList.toggle('open');
+            const icon = mobileProductsButton.querySelector('.iconify');
+            if (mobileProductsDropdown.classList.contains('open')) {
+                icon.setAttribute('data-icon', 'heroicons:chevron-up-20-solid');
+            } else {
+                icon.setAttribute('data-icon', 'heroicons:chevron-down-20-solid');
+            }
+        });
+
+
+        // Combined scroll event listener
+        window.addEventListener('scroll', () => {
+            checkScroll();
+            handleNavScroll();
+        });
+
+        // Initial check on load
+        document.addEventListener('DOMContentLoaded', () => {
+            checkScroll();
+            handleNavScroll();
+        });
+    </script>
+</body>
+</html>

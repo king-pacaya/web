@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.svg">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
+        }
+        :root {
+            --black: #0D0D0D;
+            --white: #F2F2F2;
+            --orange: #E4410A;
+            --dark-gray: #1A1A1A;
+            --medium-gray: #2D2D2D;
+            --light-gray: #3D3D3D;
+        }
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            scroll-behavior: smooth;
+        }
+        .bg-black-custom { background-color: var(--black); }
+        .text-black-custom { color: var(--black); }
+        .bg-white-custom { background-color: var(--white); }
+        .text-white-custom { color: var(--white); }
+        .text-orange-custom { color: var(--orange); }
+        .bg-orange-custom { background-color: var(--orange); }
+        .bg-dark-gray { background-color: var(--dark-gray); }
+        .bg-medium-gray { background-color: var(--medium-gray); }
+
+        /* Animaciones */
+        .animate-on-scroll {
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        .animate-on-scroll.animated {
+            opacity: 1;
+        }
+        .slide-up {
+            transform: translateY(30px);
+        }
+        .slide-up.animated {
+            transform: translateY(0);
+        }
+        .fade-in {
+            opacity: 0;
+        }
+        .fade-in.animated {
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(13, 13, 13, 0.9), rgba(13, 13, 13, 0.8));
+        }
+        .hero-title {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            background-color: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+            transition: all 0.4s ease-in-out;
+        }
+        .top-nav.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        .top-nav a {
+            color: var(--white);
+            position: relative;
+        }
+        .top-nav a:hover {
+            color: var(--orange);
+        }
+        .top-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--orange);
+            transition: width 0.3s ease;
+        }
+        .top-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Section Titles */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: -8px;
+            left: 0;
+            background: linear-gradient(90deg, var(--orange), transparent);
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--dark-gray);
+            border: 1px solid var(--medium-gray);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: var(--orange);
+        }
+
+        /* Service Cards */
+        .service-card {
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--orange);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        .service-icon-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(228, 65, 10, 0.1), rgba(228, 65, 10, 0.2));
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover .service-icon-container {
+            background: linear-gradient(135deg, rgba(228, 65, 10, 0.2), rgba(228, 65, 10, 0.3));
+            transform: rotate(15deg);
+        }
+        .service-icon-container .iconify {
+            color: var(--orange);
+            font-size: 2.5rem;
+        }
+
+        /* Equipment Cards */
+        .equipment-card {
+            padding: 0;
+            border-radius: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .equipment-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--medium-gray);
+        }
+        .equipment-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+        .equipment-card:hover img {
+            border-bottom-color: var(--orange);
+        }
+
+        /* Client Logos */
+        .client-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--dark-gray);
+            border: 1px solid var(--medium-gray);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .client-logo-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-color: var(--orange);
+        }
+        .client-logo-container img {
+            width: 100%;
+            max-width: 150px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            filter: grayscale(100%) brightness(1.5);
+            transition: filter 0.3s ease;
+        }
+        .client-logo-container:hover img {
+            filter: grayscale(0) brightness(1);
+        }
+
+        /* Contact Section */
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        .contact-info-item:last-child {
+            border-bottom: none;
+        }
+        .contact-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: rgba(228, 65, 10, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background-color: var(--black);
+            z-index: 1100;
+            transition: right 0.3s ease;
+            padding: 2rem;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        }
+        .mobile-menu.open {
+            right: 0;
+        }
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1099;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            .section-title::after {
+                bottom: -5px;
+            }
+        }
+    </style>
+    <title>Resefer Mining</title>
+</head>
+<body class="overflow-x-hidden">
+    <nav class="top-nav py-4 animate-on-scroll fade-in">
+        <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
+            <a href="" class="text-2xl font-bold">
+                <span class="text-orange-custom">RESEFER</span> <span class="text-white-custom">MINING</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="font-medium">Nosotros</a>
+                <a href="#services" class="font-medium">Servicios</a>
+                <a href="#operations-units" class="font-medium">Unidades Operativas</a>
+                <a href="#equipment" class="font-medium">Equipos</a>
+                <a href="#clients" class="font-medium">Clientes</a>
+                <a href="#contact" class="font-medium">Contacto</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white-custom">
+                <span class="iconify text-3xl" data-icon="heroicons:bars-3"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="flex justify-end mb-8">
+            <button id="mobile-menu-close" class="text-white-custom">
+                <span class="iconify text-3xl" data-icon="heroicons:x-mark"></span>
+            </button>
+        </div>
+        <div class="flex flex-col space-y-6">
+            <a href="#about" class="text-xl font-medium py-2 border-b border-gray-800">Nosotros</a>
+            <a href="#services" class="text-xl font-medium py-2 border-b border-gray-800">Servicios</a>
+            <a href="#operations-units" class="text-xl font-medium py-2 border-b border-gray-800">Unidades Operativas</a>
+            <a href="#equipment" class="text-xl font-medium py-2 border-b border-gray-800">Equipos</a>
+            <a href="#clients" class="text-xl font-medium py-2 border-b border-gray-800">Clientes</a>
+            <a href="#contact" class="text-xl font-medium py-2 border-b border-gray-800">Contacto</a>
+        </div>
+    </div>
+
+    <section class="relative h-screen flex items-center justify-center text-white-custom overflow-hidden pt-16">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('../multimedia/resefer-mining.jpg');">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        <div class="relative z-10 text-center px-4 animate-on-scroll slide-up">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight hero-title">
+                <span class="text-orange-custom">RESEFER</span> <span class="text-white-custom">MINING</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-on-scroll fade-in text-white-custom" style="transition-delay: 0.2s">
+                Soluciones integrales para la industria minera, desde la exploración hasta la explotación.
+            </p>
+            <a href="#services" class="inline-flex items-center bg-orange-custom text-white-custom px-8 py-3 text-lg font-bold uppercase tracking-wider hover:bg-white-custom hover:text-black-custom transition-colors duration-300 animate-on-scroll fade-in" style="transition-delay: 0.4s">
+                Nuestros Servicios
+                <span class="iconify inline-block ml-2 text-2xl" data-icon="akar-icons:arrow-right"></span>
+            </a>
+        </div>
+        <div class="absolute bottom-8 left-0 right-0 flex justify-center animate-on-scroll fade-in" style="transition-delay: 0.6s">
+            <a href="#about" class="text-white-custom animate-bounce">
+                <span class="iconify text-4xl" data-icon="material-symbols:keyboard-double-arrow-down"></span>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-black-custom">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2 animate-on-scroll slide-up">
+                    <h2 class="text-4xl font-bold mb-6 text-white-custom section-title">Sobre <span class="text-orange-custom">Resefer Mining</span></h2>
+                    <div class="w-20 h-1 bg-orange-custom mb-8 animate-on-scroll fade-in"></div>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-white-custom mb-4 flex items-center">
+                                <span class="iconify mr-2 text-orange-custom" data-icon="mdi:target"></span>
+                                Misión
+                            </h3>
+                            <p class="text-lg mb-6 text-gray-400">
+                                Realizar los servicios rubro minero de manera responsable, con calidad y promoviendo el desarrollo de nuestro personal, para satisfacción de nuestros clientes.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-white-custom mb-4 flex items-center">
+                                <span class="iconify mr-2 text-orange-custom" data-icon="mdi:eye-outline"></span>
+                                Visión
+                            </h3>
+                            <p class="text-lg text-gray-400">
+                                Al 2025 ser una empresa con operaciones consolidadas con altos estándares y presencia internacional.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 animate-on-scroll slide-up" style="transition-delay: 0.1s">
+                    <div class="relative">
+                        <img src="../multimedia/resefer-mining.jpg" alt="Operaciones Mineras Resefer Mining" class="w-full shadow-xl">
+                        <div class="absolute -bottom-4 -right-4 w-32 h-32 border-4 border-orange-custom bg-dark-gray p-4 flex items-center justify-center">
+                            <span class="iconify text-5xl text-orange-custom" data-icon="game-icons:mining"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-dark-gray">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                 <h2 class="text-4xl font-bold text-white-custom animate-on-scroll slide-up section-title">Nuestros <span class="text-orange-custom">Servicios</span></h2>
+                 <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto animate-on-scroll slide-up" style="transition-delay: 0.1s;">Ofrecemos soluciones integrales y especializadas para cada etapa del proceso minero.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card card animate-on-scroll slide-up">
+                    <div class="service-icon-container">
+                        <span class="iconify" data-icon="game-icons:drill"></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white-custom">Perforación de taladros largos</h3>
+                    <p class="text-gray-400 mb-4 text-left">
+                        Perforación con equipos Jumbo Long Hole para máxima eficiencia en producción de grandes volúmenes de mineral.
+                    </p>
+                </div>
+
+                <div class="service-card card animate-on-scroll slide-up" style="transition-delay: 0.1s">
+                    <div class="service-icon-container">
+                         <span class="iconify" data-icon="tabler:bomb"></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white-custom">Perforación y voladura en frentes de avance</h3>
+                    <p class="text-gray-400 mb-4 text-left">
+                        Perforación y voladura con sistemas de precisión para voladura controlada en frentes de avance.
+                    </p>
+                </div>
+
+                <div class="service-card card animate-on-scroll slide-up" style="transition-delay: 0.2s">
+                     <div class="service-icon-container">
+                        <span class="iconify" data-icon="fa6-solid:truck-fast"></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white-custom">Carguío y voladura de taladros largos</h3>
+                    <p class="text-gray-400 mb-4 text-left">
+                        Carguío de explosivos para voladura controlada en taladros largos de producción.
+                    </p>
+                </div>
+
+                <div class="service-card card animate-on-scroll slide-up" style="transition-delay: 0.3s">
+                     <div class="service-icon-container">
+                        <span class="iconify" data-icon="mdi:hard-hat"></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white-custom">Sostenimiento de labores mineras</h3>
+                    <p class="text-gray-400 mb-4 text-left">
+                        Sostenimiento con pernos de anclaje y lanzado de shotcrete vía húmeda.
+                    </p>
+                </div>
+
+                <div class="service-card card animate-on-scroll slide-up" style="transition-delay: 0.4s">
+                    <div class="service-icon-container">
+                        <span class="iconify" data-icon="game-icons:rock"></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white-custom">Desatado mecanizado de rocas sueltas</h3>
+                    <p class="text-gray-400 mb-4 text-left">
+                        Desatado de rocas sueltas con equipos mecanizados para suprimir la exposición del personal.
+                    </p>
+                </div>
+
+                <div class="service-card card animate-on-scroll slide-up" style="transition-delay: 0.5s">
+                    <div class="service-icon-container">
+                        <span class="iconify" data-icon="mdi:mine"></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white-custom">Limpieza y extracción de minerales</h3>
+                    <p class="text-gray-400 mb-4 text-left">
+                        Carga y extracción de material fragmentado con equipos de bajo perfil.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="operations-units" class="py-20 bg-black-custom">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                 <h2 class="text-4xl font-bold text-white-custom animate-on-scroll slide-up section-title">Nuestras <span class="text-orange-custom">Unidades Operativas</span></h2>
+                 <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto animate-on-scroll slide-up" style="transition-delay: 0.1s;">Contamos con presencia en diversas unidades mineras a nivel nacional, garantizando un servicio eficiente.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card p-8 text-center animate-on-scroll slide-up hover:bg-dark-gray">
+                    <span class="iconify text-5xl mb-4 text-orange-custom mx-auto" data-icon="mdi:map-marker"></span>
+                    <h3 class="text-xl font-bold mb-2 text-white-custom">Unidad San Vicente</h3>
+                    <p class="text-gray-400">1400 a 2000 msnm</p>
+                </div>
+                <div class="card p-8 text-center animate-on-scroll slide-up hover:bg-dark-gray" style="transition-delay: 0.1s">
+                    <span class="iconify text-5xl mb-4 text-orange-custom mx-auto" data-icon="mdi:map-marker"></span>
+                    <h3 class="text-xl font-bold mb-2 text-white-custom">Unidad Yauliyacu</h3>
+                    <p class="text-gray-400">4200 msnm</p>
+                </div>
+                <div class="card p-8 text-center animate-on-scroll slide-up hover:bg-dark-gray" style="transition-delay: 0.2s">
+                    <span class="iconify text-5xl mb-4 text-orange-custom mx-auto" data-icon="mdi:map-marker"></span>
+                    <h3 class="text-xl font-bold mb-2 text-white-custom">Unidad Inmaculada</h3>
+                    <p class="text-gray-400">3900 msnm</p>
+                </div>
+                <div class="card p-8 text-center animate-on-scroll slide-up hover:bg-dark-gray" style="transition-delay: 0.3s">
+                    <span class="iconify text-5xl mb-4 text-orange-custom mx-auto" data-icon="mdi:map-marker"></span>
+                    <h3 class="text-xl font-bold mb-2 text-white-custom">Unidad Parcoy</h3>
+                    <p class="text-gray-400">2700 msnm</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipment" class="py-20 bg-dark-gray">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16 text-white-custom animate-on-scroll slide-up section-title">Nuestros <span class="text-orange-custom">Equipos</span></h2>
+
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold text-white-custom mb-8 animate-on-scroll slide-up flex items-center">
+                    <span class="iconify mr-2 text-orange-custom" data-icon="mdi:tools"></span>
+                    Perforación
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="equipment-card card animate-on-scroll slide-up">
+                        <img src="../multimedia/triton/triton-little.jpg" alt="Triton Little">
+                        <div class="equipment-card-content">
+                            <h4 class="text-xl font-semibold text-white-custom mb-2">Triton Little</h4>
+                            <p class="text-gray-400">Equipo para galerías y túneles estrechos, con alta productividad por metro lineal.</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card card animate-on-scroll slide-up" style="transition-delay: 0.1s">
+                        <img src="../multimedia/triton/triton-dfs-14.jpg" alt="Triton DFS 14">
+                        <div class="equipment-card-content">
+                            <h4 class="text-xl font-semibold text-white-custom mb-2">Triton DFS 14</h4>
+                            <p class="text-gray-400">Perforadora frontal con paralelismo automático, ideal para secciones de 2.5 x 2.5 hasta 4.5 x 4.0.</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card card animate-on-scroll slide-up" style="transition-delay: 0.2s">
+                        <img src="../multimedia/triton/triton-dfs-16.jpg" alt="Triton DFS 16">
+                        <div class="equipment-card-content">
+                            <h4 class="text-xl font-semibold text-white-custom mb-2">Triton DFS 16</h4>
+                            <p class="text-gray-400">Equipo de perforación frontal para minas y túneles, optimiza productividad en secciones de 3.0 x 3.0.</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card card animate-on-scroll slide-up">
+                        <img src="../multimedia/nautilus/nautilus-little.png" alt="Nautilus Little">
+                        <div class="equipment-card-content">
+                            <h4 class="text-xl font-semibold text-white-custom mb-2">Nautilus Little</h4>
+                            <p class="text-gray-400">Equipo para taladros largos en secciones reducidas, con alcance de 15 metros.</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card card animate-on-scroll slide-up" style="transition-delay: 0.1s">
+                        <img src="../multimedia/nautilus/nautilus-dsb-16.jpg" alt="Nautilus DSB 1.6">
+                        <div class="equipment-card-content">
+                            <h4 class="text-xl font-semibold text-white-custom mb-2">Nautilus DSB 1.6</h4>
+                            <p class="text-gray-400">Perforadora de taladros largos para secciones de 3.0 x 3.0, minimiza la desviación del taladro.</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card card animate-on-scroll slide-up" style="transition-delay: 0.2s">
+                        <img src="../multimedia/nautilus/nautilus2.jpg" alt="Nautilus DSB 2.0">
+                        <div class="equipment-card-content">
+                            <h4 class="text-xl font-semibold text-white-custom mb-2">Nautilus DSB 2.0</h4>
+                            <p class="text-gray-400">Diseñado para secciones amplias de 3.5 x 3.5 metros, con alcance de 25 metros.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold text-white-custom mb-8 animate-on-scroll slide-up flex items-center">
+                    <span class="iconify mr-2 text-orange-custom" data-icon="mdi:shield-check"></span>
+                    Sostenimiento
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="equipment-card card animate-on-scroll slide-up">
+                        <img src="../multimedia/rock-bolt/rock-bolt-320.png" alt="Rock Bolt 220">
+                        <div class="equipment-card-content">
+                            <h4 class="text-xl font-semibold text-white-custom mb-2">Rock Bolt 220</h4>
+                            <p class="text-gray-400">Equipo mecanizado para sostenimiento en minas subterráneas, instala elementos de anclaje de forma rápida.</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card card animate-on-scroll slide-up" style="transition-delay: 0.1s">
+                        <img src="../multimedia/rock-bolt/rock-bolt-320.png" alt="Rock Bolt 420">
+                        <div class="equipment-card-content">
+                            <h4 class="text-xl font-semibold text-white-custom mb-2">Rock Bolt 420</h4>
+                            <p class="text-gray-400">Equipo de sostenimiento mecanizado que perfora e instala pernos de anclaje de forma rápida y eficiente.</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card card animate-on-scroll slide-up" style="transition-delay: 0.2s">
+                        <img src="../multimedia/rock-bolt/rock-bolt-320.png" alt="Rock Bolt 320">
+                        <div class="equipment-card-content">
+                            <h4 class="text-xl font-semibold text-white-custom mb-2">Rock Bolt 320</h4>
+                            <p class="text-gray-400">Equipo de perforación y sostenimiento para instalar pernos de forma segura y económica.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold text-white-custom mb-8 animate-on-scroll slide-up flex items-center">
+                    <span class="iconify mr-2 text-orange-custom" data-icon="mdi:hammer"></span>
+                    Desate
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="equipment-card card animate-on-scroll slide-up">
+                        <img src="../multimedia/rock-breaker/rock-breaker.jpg" alt="Rock Breaker">
+                        <div class="equipment-card-content">
+                            <h4 class="text-xl font-semibold text-white-custom mb-2">Rock Breaker</h4>
+                            <p class="text-gray-400">Equipo diseñado para todo terreno, con dirección articulada y eje trasero móvil.</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card card animate-on-scroll slide-up" style="transition-delay: 0.1s">
+                        <img src="../multimedia/ciclon/ciclon2.jpg" alt="Ciclón 4.0">
+                        <div class="equipment-card-content">
+                            <h4 class="text-xl font-semibold text-white-custom mb-2">Ciclón 4.0</h4>
+                            <p class="text-gray-400">Diseñado para transportar mezclas de concreto para lanzado de shotcrete vía húmeda, capacidad de 4.0 m³.</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card card animate-on-scroll slide-up" style="transition-delay: 0.2s">
+                        <img src="../multimedia/ciclon/ciclon2.jpg" alt="Ciclón 1.5">
+                        <div class="equipment-card-content">
+                            <h4 class="text-xl font-semibold text-white-custom mb-2">Ciclón 1.5</h4>
+                            <p class="text-gray-400">Diseñado para transportar shotcrete vía húmeda, capacidad de 1.5 m³, para secciones estrechas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-3xl font-bold text-white-custom mb-8 animate-on-scroll slide-up flex items-center">
+                    <span class="iconify mr-2 text-orange-custom" data-icon="mdi:car-cog"></span>
+                    Utilitario
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="equipment-card card animate-on-scroll slide-up">
+                        <img src="../multimedia/utilitario/rock-lift-420.jpg" alt="Rock Lift 420">
+                        <div class="equipment-card-content">
+                            <h4 class="text-xl font-semibold text-white-custom mb-2">Rock Lift 420</h4>
+                            <p class="text-gray-400">Equipo utilitario todo terreno con dirección articulada para servicios auxiliares.</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card card animate-on-scroll slide-up" style="transition-delay: 0.1s">
+                        <img src="../multimedia/utilitario/spraymix-little.jpg" alt="Spraymix Little">
+                        <div class="equipment-card-content">
+                            <h4 class="text-xl font-semibold text-white-custom mb-2">Spraymix Little</h4>
+                            <p class="text-gray-400">Diseñado para lanzar mezcla de concreto vía húmeda, con rendimiento de 12 m³ por hora.</p>
+                        </div>
+                    </div>
+                    <div class="equipment-card card animate-on-scroll slide-up" style="transition-delay: 0.2s">
+                        <img src="../multimedia/utilitario/spraymix.jpg" alt="Spraymix">
+                        <div class="equipment-card-content">
+                            <h4 class="text-xl font-semibold text-white-custom mb-2">Spraymix</h4>
+                            <p class="text-gray-400">Diseñado para lanzar mezcla de concreto vía húmeda, rendimiento de 20 m³ por hora.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="clients" class="py-20 bg-black-custom">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16 text-white-custom animate-on-scroll slide-up section-title">Nuestros <span class="text-orange-custom">Clientes</span></h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 animate-on-scroll slide-up">
+                <div>
+                    <h3 class="text-2xl font-semibold text-white-custom mb-6 flex items-center">
+                        <span class="iconify w-6 h-6 mr-2 text-orange-custom" data-icon="flag:pe-4x3"></span>
+                        Clientes Nacionales
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="client-logo-container">
+                            <img src="../multimedia/clientes/simsa.jpeg" alt="Logo Compañía Minera SIMSA S.A.">
+                            <p class="text-white-custom">Compañía Minera SIMSA S.A.</p>
+                        </div>
+                        <div class="client-logo-container">
+                            <img src="../multimedia/clientes/volcan.png" alt="Logo Compañía Minera Volcan S.A.">
+                            <p class="text-white-custom">Compañía Minera Volcan S.A.</p>
+                        </div>
+                        <div class="client-logo-container">
+                            <img src="../multimedia/clientes/compania-buenaventura.png" alt="Logo Compañía de Minas Buenaventura S.A.">
+                            <p class="text-white-custom">Compañía de Minas Buenaventura S.A.</p>
+                        </div>
+                        <div class="client-logo-container">
+                            <img src="../multimedia/clientes/minero-horizonte.png" alt="Logo Consorcio Minero Horizonte S.A.">
+                            <p class="text-white-custom">Consorcio Minero Horizonte S.A.</p>
+                        </div>
+                        <div class="client-logo-container">
+                            <img src="../multimedia/clientes/austria-duvaz.jpg" alt="Logo Sociedad Minera Austria Duvaz S.A.C">
+                            <p class="text-white-custom">Sociedad Minera Austria Duvaz S.A.C</p>
+                        </div>
+                        <div class="client-logo-container">
+                            <img src="../multimedia/clientes/brexia.jpeg" alt="Logo CIA Minera Brexia Golden Plata S.A.C">
+                            <p class="text-white-custom">CIA Minera Brexia Golden Plata S.A.C</p>
+                        </div>
+                        <div class="client-logo-container">
+                            <img src="../multimedia/clientes/hochchild.png" alt="Logo Hochchild">
+                            <p class="text-white-custom">Hochchild</p>
+                        </div>
+                        <div class="client-logo-container">
+                            <img src="../multimedia/clientes/losquenuales.svg" alt="Logo LosQuenuales">
+                            <p class="text-white-custom">LosQuenuales</p>
+                        </div>
+                        <div class="client-logo-container">
+                            <img src="../multimedia/clientes/ocp-cobriza.png" alt="Logo OCP Cobriza">
+                            <p class="text-white-custom">OCP Cobriza</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-white-custom mb-6 section-title">Clientes <span class="text-orange-custom">Internacionales</span></h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="client-logo-container">
+                            <img src="https://flagcdn.com/w320/bo.png" alt="Bolivia" class="w-full h-auto">
+                            <p class="text-white-custom">Bolivia</p>
+                        </div>
+                        <div class="client-logo-container">
+                            <img src="https://flagcdn.com/w320/ni.png" alt="Nicaragua" class="w-full h-auto">
+                            <p class="text-white-custom">Nicaragua</p>
+                        </div>
+                        <div class="client-logo-container">
+                            <img src="https://flagcdn.com/w320/cl.png" alt="Chile" class="w-full h-auto">
+                            <p class="text-white-custom">Chile</p>
+                        </div>
+                        <div class="client-logo-container">
+                            <img src="https://flagcdn.com/w320/br.png" alt="Brasil" class="w-full h-auto">
+                            <p class="text-white-custom">Brasil</p>
+                        </div>
+                        <div class="client-logo-container">
+                            <img src="https://flagcdn.com/w320/mx.png" alt="Mexico" class="w-full h-auto">
+                            <p class="text-white-custom">México</p>
+                        </div>
+                        <div class="client-logo-container">
+                            <img src="https://flagcdn.com/w320/za.png" alt="Sudafrica" class="w-full h-auto">
+                            <p class="text-white-custom">Sudáfrica</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-dark-gray">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-4xl font-bold text-center mb-10 text-white-custom animate-on-scroll slide-up section-title">Contáctanos</h2>
+            <div class="w-20 h-1 bg-orange-custom mb-12 mx-auto animate-on-scroll fade-in" style="transition-delay: 0.2s"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 animate-on-scroll slide-up">
+                <div class="bg-black-custom text-white-custom p-8 md:p-12 flex flex-col justify-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-white-custom">Información de Contacto</h3>
+                        <div class="space-y-6">
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <span class="iconify text-2xl text-orange-custom" data-icon="mdi:email-outline"></span>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg mb-1">Correo Electrónico</p>
+                                    <a href="mailto:ventas@resefer.com" class="hover:underline text-white-custom">ventas@resefer.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <span class="iconify text-2xl text-orange-custom" data-icon="mdi:whatsapp"></span>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg mb-1">WhatsApp</p>
+                                    <a href="https://wa.me/51975054580" target="_blank" class="hover:underline text-white-custom">+51 975 054 580</a>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <span class="iconify text-2xl text-orange-custom" data-icon="mdi:map-marker-outline"></span>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg mb-1">Dirección</p>
+                                    <p class="text-white-custom">Calle Las Fraguas Mza. "B" Lote 18<br>Independencia - Lima - Perú</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-black-custom p-0 shadow-sm">
+                    <div class="h-full w-full">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.9488060942176!2d-77.0636057!3d-11.978044299999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105ce4974a207d7%3A0x427c44e5c294c813!2sLas%20Fraguas%20318%2C%20Lima%2015311!5e0!3m2!1ses-419!2spe!4v1752524872192!5m2!1ses-419!2spe"
+                            style="border:0; width: 100%; height: 100%; min-height: 400px;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Ubicación de Resefer Mining"
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black-custom text-white-custom py-12">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="../" class="text-3xl font-bold"><span class="text-white-custom">RESEFER</span> <span class="text-orange-custom">GROUP</span></a>
+                    <p class="mt-2 text-gray-400">Soluciones mineras de clase mundial</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-orange-custom transition-colors">
+                        <span class="iconify text-2xl" data-icon="mdi:web"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center md:text-left">
+                <p class="text-gray-400">© 2025 Resefer Group. Todos los derechos reservados.</p>
+                <p class="text-sm opacity-70 mt-2">
+                    Diseñado por <a href="https://king-pacaya.github.io" target="_blank" class="text-white-custom hover:text-orange-custom transition-colors">King Pacaya</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mobileMenu.classList.contains('open')) {
+                        toggleMobileMenu();
+                    }
+                }
+            });
+        });
+
+        // Scroll animation trigger
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        function checkScroll() {
+            const windowHeight = window.innerHeight;
+            const triggerPoint = windowHeight * 0.85;
+
+            animatedElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+
+                if (elementTop < triggerPoint) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+
+        // Top nav hide/show on scroll
+        const topNav = document.querySelector('.top-nav');
+        let lastScrollY = window.scrollY;
+
+        function handleNavScroll() {
+            if (window.scrollY > 100) {
+                topNav.classList.add('scrolled');
+            } else {
+                topNav.classList.remove('scrolled');
+            }
+
+            if (window.scrollY > lastScrollY && window.scrollY > 150) {
+                // Scroll Down
+                topNav.style.top = "-110px"; // Hide nav
+            } else {
+                // Scroll Up
+                topNav.style.top = "0"; // Show nav
+            }
+            lastScrollY = window.scrollY;
+        }
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('open');
+            mobileMenuOverlay.classList.toggle('open');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+        mobileMenuClose.addEventListener('click', toggleMobileMenu);
+        mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+
+        // Combined scroll event listener
+        window.addEventListener('scroll', () => {
+            checkScroll();
+            handleNavScroll();
+        });
+
+        // Initial check on load
+        document.addEventListener('DOMContentLoaded', () => {
+            checkScroll();
+            handleNavScroll();
+        });
+    </script>
+</body>
+</html>
